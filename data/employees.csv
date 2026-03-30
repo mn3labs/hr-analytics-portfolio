@@ -1,0 +1,201 @@
+employee_id,prenom,nom,genre,departement,poste,date_embauche,manager_id,statut,email,type_contrat,ville
+E001,Simon,Chevalier,H,Data & IA,Responsable Data & IA,2020-04-03,,Actif,simon.chevalier@techcorp.fr,CDD,Marseille
+E002,Pauline,François,F,Support & Ops,Responsable Support & Ops,2020-10-12,,Actif,pauline.françois@techcorp.fr,CDI,Paris
+E003,Tristan,Garcia,H,Product,Responsable Product,2018-10-18,,Actif,tristan.garcia@techcorp.fr,CDI,Nantes
+E004,Arthur,Girard,H,Support & Ops,Support Technique,2023-10-07,E002,Actif,arthur.girard@techcorp.fr,CDD,Nantes
+E005,Arnaud,Muller,H,Product,Product Designer,2023-04-21,E003,Actif,arnaud.muller@techcorp.fr,CDD,Lille
+E006,Clément,Petit,H,Marketing,Responsable Marketing,2022-11-01,,Actif,clement.petit@techcorp.fr,CDD,Strasbourg
+E007,Yoann,Morin,H,Engineering,Responsable Engineering,2019-02-08,,Actif,yoann.morin@techcorp.fr,CDI,Lyon
+E008,Ethan,Lefebvre,H,Engineering,Architecte Logiciel,2023-01-12,E007,Actif,ethan.lefebvre@techcorp.fr,CDI,Toulouse
+E009,Inès,Robert,F,Data & IA,BI Developer,2024-03-04,E001,Actif,ines.robert@techcorp.fr,Stage,Paris
+E010,Cédric,David,H,Engineering,Développeur Backend,2022-07-23,E007,Actif,cedric.david@techcorp.fr,CDI,Lille
+E011,Edouard,Mercier,H,Sales,Responsable Sales,2022-05-19,,Actif,edouard.mercier@techcorp.fr,CDD,Toulouse
+E012,Vanessa,Lopez,F,RH,Responsable RH,2023-06-17,,Actif,vanessa.lopez@techcorp.fr,CDI,Nantes
+E013,Tristan,Fontaine,H,Marketing,Community Manager,2018-09-07,E006,Actif,tristan.fontaine@techcorp.fr,CDI,Paris
+E014,Océane,Rousseau,F,Data & IA,Data Scientist,2018-08-21,E001,Actif,oceane.rousseau@techcorp.fr,CDI,Bordeaux
+E015,Valentin,Robert,H,Sales,Business Developer,2022-07-12,E011,Actif,valentin.robert@techcorp.fr,Stage,Nantes
+E016,Victor,Richard,H,RH,Responsable Formation,2023-11-12,E012,Actif,victor.richard@techcorp.fr,CDI,Nantes
+E017,Inès,Bertrand,F,Engineering,DevOps Engineer,2019-06-21,E007,Actif,ines.bertrand@techcorp.fr,CDI,Strasbourg
+E018,Zoé,Robert,F,Marketing,Marketing Manager,2023-02-21,E006,Actif,zoe.robert@techcorp.fr,Stage,Lyon
+E019,Simon,Michel,H,Engineering,Architecte Logiciel,2020-12-22,E007,Actif,simon.michel@techcorp.fr,CDI,Lyon
+E020,Mathieu,Vincent,H,Engineering,Développeur Backend,2022-11-30,E007,Actif,mathieu.vincent@techcorp.fr,CDI,Paris
+E021,Stéphanie,Petit,F,Sales,Business Developer,2020-12-19,E011,Actif,stephanie.petit@techcorp.fr,CDI,Bordeaux
+E022,Laura,Roussel,F,Engineering,Développeur Backend,2021-11-05,E007,Actif,laura.roussel@techcorp.fr,CDI,Strasbourg
+E023,Anaïs,Richard,F,Engineering,QA Engineer,2022-10-01,E007,Actif,anaïs.richard@techcorp.fr,CDI,Paris
+E024,Jade,Leroy,F,Marketing,Campaign Manager,2020-12-08,E006,Actif,jade.leroy@techcorp.fr,CDD,Lille
+E025,Damien,Robert,H,Support & Ops,Ops Manager,2024-02-13,E002,Inactif,damien.robert@techcorp.fr,CDI,Bordeaux
+E026,Clara,Dubois,F,RH,HR Business Partner,2022-02-02,E012,Actif,clara.dubois@techcorp.fr,CDI,Marseille
+E027,Yoann,David,H,Engineering,QA Engineer,2019-02-26,E007,Actif,yoann.david@techcorp.fr,Stage,Lille
+E028,François,Simon,H,Product,Product Owner,2022-08-16,E003,Inactif,françois.simon@techcorp.fr,CDI,Lille
+E029,Guillaume,Simon,H,Engineering,Data Engineer,2019-03-19,E007,Actif,guillaume.simon@techcorp.fr,CDI,Strasbourg
+E030,Ethan,Martinez,H,Support & Ops,IT Support,2021-06-04,E002,Actif,ethan.martinez@techcorp.fr,CDI,Nantes
+E031,Yann,Lefebvre,H,Engineering,DevOps Engineer,2021-09-06,E007,Actif,yann.lefebvre@techcorp.fr,CDI,Toulouse
+E032,Sophie,Faure,F,Marketing,SEO Specialist,2024-01-06,E006,Actif,sophie.faure@techcorp.fr,CDI,Lyon
+E033,Elisa,Henry,F,Engineering,Lead Developer,2018-06-06,E007,Actif,elisa.henry@techcorp.fr,CDD,Marseille
+E034,Mathilde,Roussel,F,Engineering,Architecte Logiciel,2019-04-19,E007,Actif,mathilde.roussel@techcorp.fr,Stage,Nantes
+E035,Amélie,Dumont,F,Sales,Customer Success Manager,2018-01-07,E011,Actif,amelie.dumont@techcorp.fr,Stage,Nantes
+E036,Mathilde,Robert,F,Data & IA,Chef de Projet Data,2021-09-14,E001,Actif,mathilde.robert@techcorp.fr,CDI,Toulouse
+E037,Stéphanie,Lambert,F,Data & IA,ML Engineer,2022-07-07,E001,Actif,stephanie.lambert@techcorp.fr,Stage,Bordeaux
+E038,Nicolas,Mathieu,H,Support & Ops,Office Manager,2019-12-14,E002,Actif,nicolas.mathieu@techcorp.fr,CDI,Lille
+E039,Julien,Vincent,H,Engineering,Développeur Backend,2022-10-27,E007,Actif,julien.vincent@techcorp.fr,Stage,Marseille
+E040,Mélanie,François,F,Finance,Responsable Finance,2023-09-25,,Actif,melanie.françois@techcorp.fr,CDI,Lyon
+E041,Océane,Mathieu,F,RH,Payroll Specialist,2021-10-04,E012,Actif,oceane.mathieu@techcorp.fr,CDI,Toulouse
+E042,Ethan,Moreau,H,Data & IA,Data Analyst,2018-07-09,E001,Actif,ethan.moreau@techcorp.fr,CDD,Lyon
+E043,Marion,Perrin,F,Engineering,Architecte Logiciel,2020-03-07,E007,Actif,marion.perrin@techcorp.fr,CDD,Strasbourg
+E044,Inès,Moreau,F,Sales,Account Executive,2019-03-13,E011,Actif,ines.moreau@techcorp.fr,CDI,Bordeaux
+E045,Anaïs,Guerin,F,RH,Chargé de Recrutement,2019-05-13,E012,Actif,anaïs.guerin@techcorp.fr,CDD,Marseille
+E046,Séverine,Lopez,F,Engineering,Architecte Logiciel,2022-10-14,E007,Actif,severine.lopez@techcorp.fr,Stage,Strasbourg
+E047,Benoît,Legrand,H,Marketing,SEO Specialist,2020-11-27,E006,Actif,benoît.legrand@techcorp.fr,CDI,Strasbourg
+E048,Guillaume,François,H,Product,Product Manager,2021-03-16,E003,Actif,guillaume.françois@techcorp.fr,CDI,Marseille
+E049,David,Moreau,H,Data & IA,Data Scientist,2022-04-18,E001,Actif,david.moreau@techcorp.fr,CDI,Lyon
+E050,Marion,Girard,F,Product,Product Designer,2023-03-24,E003,Actif,marion.girard@techcorp.fr,CDI,Lille
+E051,Jade,Henry,F,Product,Scrum Master,2018-03-22,E003,Actif,jade.henry@techcorp.fr,Stage,Lille
+E052,Alice,André,F,Product,UX Designer,2022-05-17,E003,Actif,alice.andré@techcorp.fr,CDD,Nantes
+E053,Eva,Roux,F,Product,UI Designer,2023-06-13,E003,Inactif,eva.roux@techcorp.fr,CDI,Lille
+E054,Pierre,Leroy,H,Sales,Presales Engineer,2023-12-28,E011,Inactif,pierre.leroy@techcorp.fr,CDD,Paris
+E055,Xavier,Bonnet,H,Engineering,Développeur Backend,2023-03-07,E007,Actif,xavier.bonnet@techcorp.fr,CDI,Lille
+E056,Emilie,Martinez,F,Engineering,Lead Developer,2021-10-14,E007,Actif,emilie.martinez@techcorp.fr,CDD,Toulouse
+E057,Julie,Richard,F,RH,Responsable Formation,2018-03-21,E012,Actif,julie.richard@techcorp.fr,CDI,Marseille
+E058,Xavier,Robert,H,Support & Ops,Support Technique,2018-05-08,E002,Actif,xavier.robert@techcorp.fr,CDI,Paris
+E059,François,Leroy,H,Engineering,DevOps Engineer,2019-04-14,E007,Actif,françois.leroy@techcorp.fr,CDI,Strasbourg
+E060,Jade,Lefevre,F,Data & IA,Data Scientist,2019-04-15,E001,Actif,jade.lefevre@techcorp.fr,CDI,Toulouse
+E061,Tristan,Bernard,H,Product,UX Designer,2022-03-18,E003,Actif,tristan.bernard@techcorp.fr,CDI,Lyon
+E062,Clément,Gauthier,H,Engineering,Data Engineer,2021-05-20,E007,Actif,clement.gauthier@techcorp.fr,Stage,Lyon
+E063,Lucas,Blanc,H,Sales,Customer Success Manager,2022-02-26,E011,Actif,lucas.blanc@techcorp.fr,CDI,Paris
+E064,Noémie,Petit,F,Finance,Trésorier,2022-01-23,E040,Actif,noemie.petit@techcorp.fr,CDD,Bordeaux
+E065,Elisa,Lopez,F,Sales,Presales Engineer,2021-01-11,E011,Actif,elisa.lopez@techcorp.fr,Stage,Strasbourg
+E066,Mathilde,Lopez,F,Data & IA,Data Engineer,2021-01-04,E001,Actif,mathilde.lopez@techcorp.fr,CDI,Lyon
+E067,Mélanie,David,F,Marketing,SEO Specialist,2022-04-02,E006,Actif,melanie.david@techcorp.fr,CDD,Marseille
+E068,Raphaël,Michel,H,Engineering,Lead Developer,2020-11-24,E007,Actif,raphael.michel@techcorp.fr,Stage,Toulouse
+E069,Samuel,Lefebvre,H,Engineering,Développeur Frontend,2020-09-15,E007,Actif,samuel.lefebvre@techcorp.fr,CDD,Nantes
+E070,Sophie,Dumont,F,Finance,Trésorier,2023-01-10,E040,Actif,sophie.dumont@techcorp.fr,CDI,Toulouse
+E071,Nathan,Gauthier,H,Sales,Business Developer,2021-06-08,E011,Actif,nathan.gauthier@techcorp.fr,CDI,Strasbourg
+E072,Mathilde,Fontaine,F,Finance,Responsable Comptable,2021-09-16,E040,Actif,mathilde.fontaine@techcorp.fr,CDD,Toulouse
+E073,Julie,Garcia,F,Data & IA,Data Analyst,2020-02-28,E001,Actif,julie.garcia@techcorp.fr,Stage,Bordeaux
+E074,Fabien,Fontaine,H,Data & IA,BI Developer,2021-02-06,E001,Actif,fabien.fontaine@techcorp.fr,Stage,Toulouse
+E075,Ethan,Vincent,H,RH,Chargé de Recrutement,2022-01-18,E012,Actif,ethan.vincent@techcorp.fr,CDI,Bordeaux
+E076,Amélie,Thomas,F,Engineering,Architecte Logiciel,2021-04-11,E007,Actif,amelie.thomas@techcorp.fr,CDI,Strasbourg
+E077,Alexandre,Muller,H,Product,UX Designer,2023-04-07,E003,Actif,alexandre.muller@techcorp.fr,CDI,Bordeaux
+E078,Gabriel,Legrand,H,Data & IA,Data Analyst,2018-09-25,E001,Actif,gabriel.legrand@techcorp.fr,CDI,Paris
+E079,Dylan,Muller,H,Engineering,Lead Developer,2018-12-15,E007,Actif,dylan.muller@techcorp.fr,CDI,Lille
+E080,Charles,Rousseau,H,Support & Ops,Office Manager,2023-01-20,E002,Actif,charles.rousseau@techcorp.fr,CDI,Lille
+E081,Romane,Nicolas,F,Data & IA,Data Analyst,2019-02-11,E001,Actif,romane.nicolas@techcorp.fr,CDI,Nantes
+E082,Stéphanie,Richard,F,Marketing,Growth Hacker,2020-09-09,E006,Actif,stephanie.richard@techcorp.fr,CDI,Bordeaux
+E083,Nicolas,François,H,Product,Scrum Master,2023-04-09,E003,Actif,nicolas.françois@techcorp.fr,CDI,Toulouse
+E084,Vanessa,Martinez,F,Marketing,Marketing Manager,2020-08-14,E006,Actif,vanessa.martinez@techcorp.fr,Stage,Nantes
+E085,Chloé,Blanc,F,Sales,Business Developer,2019-09-03,E011,Actif,chloe.blanc@techcorp.fr,CDI,Lyon
+E086,Edouard,Fournier,H,Engineering,Architecte Logiciel,2021-03-28,E007,Actif,edouard.fournier@techcorp.fr,CDD,Toulouse
+E087,Juliette,Faure,F,Engineering,Architecte Logiciel,2023-07-16,E007,Actif,juliette.faure@techcorp.fr,Stage,Paris
+E088,Yasmine,Morel,F,Sales,Presales Engineer,2020-10-22,E011,Inactif,yasmine.morel@techcorp.fr,CDI,Paris
+E089,Romane,Dubois,F,Marketing,Growth Hacker,2023-04-12,E006,Actif,romane.dubois@techcorp.fr,CDD,Toulouse
+E090,Tristan,Bonnet,H,Finance,Trésorier,2019-01-09,E040,Actif,tristan.bonnet@techcorp.fr,CDD,Marseille
+E091,Stéphanie,Petit,F,Data & IA,Data Scientist,2021-09-12,E001,Actif,stephanie.petit@techcorp.fr,CDD,Toulouse
+E092,Zoé,Guerin,F,Data & IA,Data Analyst,2023-02-06,E001,Actif,zoe.guerin@techcorp.fr,CDI,Marseille
+E093,Charles,Dupont,H,Sales,Presales Engineer,2018-01-05,E011,Actif,charles.dupont@techcorp.fr,Stage,Strasbourg
+E094,Anaïs,Lefebvre,F,Product,Product Designer,2022-01-21,E003,Actif,anaïs.lefebvre@techcorp.fr,CDD,Strasbourg
+E095,Fabien,Roux,H,Sales,Presales Engineer,2019-06-21,E011,Actif,fabien.roux@techcorp.fr,CDD,Strasbourg
+E096,Antoine,Perrin,H,Data & IA,Data Engineer,2020-09-07,E001,Actif,antoine.perrin@techcorp.fr,CDI,Paris
+E097,Camille,Garcia,F,Engineering,Data Engineer,2019-04-10,E007,Actif,camille.garcia@techcorp.fr,CDI,Bordeaux
+E098,Victoria,Vincent,F,Support & Ops,Responsable Logistique,2021-01-24,E002,Actif,victoria.vincent@techcorp.fr,CDD,Strasbourg
+E099,Pierre,Guerin,H,Product,Product Owner,2022-04-21,E003,Actif,pierre.guerin@techcorp.fr,Stage,Bordeaux
+E100,Guillaume,Robin,H,Engineering,Data Engineer,2022-08-27,E007,Actif,guillaume.robin@techcorp.fr,Stage,Toulouse
+E101,Hugo,Lopez,H,Finance,Analyste Financier,2023-06-29,E040,Actif,hugo.lopez@techcorp.fr,CDD,Strasbourg
+E102,Lea,Guerin,F,Engineering,Data Engineer,2024-02-04,E007,Actif,lea.guerin@techcorp.fr,CDI,Nantes
+E103,Théo,Mercier,H,Engineering,Développeur Backend,2022-08-10,E007,Inactif,theo.mercier@techcorp.fr,CDD,Lille
+E104,Stéphanie,Morin,F,Support & Ops,Ops Manager,2023-07-22,E002,Actif,stephanie.morin@techcorp.fr,CDI,Marseille
+E105,Paul,Petit,H,Product,Product Designer,2023-02-15,E003,Inactif,paul.petit@techcorp.fr,CDI,Lille
+E106,Baptiste,Legrand,H,Product,UX Designer,2021-10-18,E003,Actif,baptiste.legrand@techcorp.fr,CDD,Lyon
+E107,Valentine,Blanc,F,Marketing,SEO Specialist,2021-07-21,E006,Actif,valentine.blanc@techcorp.fr,CDD,Paris
+E108,François,Perrin,H,Marketing,Campaign Manager,2021-03-23,E006,Actif,françois.perrin@techcorp.fr,CDI,Lille
+E109,Cédric,Perrin,H,Support & Ops,Support Technique,2022-12-23,E002,Actif,cedric.perrin@techcorp.fr,CDI,Paris
+E110,Kevin,Thomas,H,Marketing,Content Manager,2022-01-08,E006,Actif,kevin.thomas@techcorp.fr,CDI,Nantes
+E111,Romane,Clement,F,Finance,Comptable,2019-11-28,E040,Actif,romane.clement@techcorp.fr,Stage,Lille
+E112,Raphaël,Henry,H,Marketing,Growth Hacker,2020-08-09,E006,Actif,raphael.henry@techcorp.fr,CDI,Strasbourg
+E113,Stéphanie,Martin,F,Engineering,Data Engineer,2023-03-21,E007,Actif,stephanie.martin@techcorp.fr,Stage,Bordeaux
+E114,Paul,André,H,Engineering,Architecte Logiciel,2021-05-10,E007,Actif,paul.andré@techcorp.fr,CDD,Toulouse
+E115,Laure,Lefebvre,F,RH,Responsable Formation,2023-06-03,E012,Actif,laure.lefebvre@techcorp.fr,CDD,Marseille
+E116,Vanessa,Vincent,F,Sales,Account Executive,2022-06-10,E011,Actif,vanessa.vincent@techcorp.fr,Stage,Paris
+E117,Laura,Robin,F,Sales,Business Developer,2021-12-14,E011,Actif,laura.robin@techcorp.fr,CDI,Toulouse
+E118,Vincent,Petit,H,Marketing,Campaign Manager,2018-06-11,E006,Actif,vincent.petit@techcorp.fr,CDD,Paris
+E119,Virginie,Leroy,F,Marketing,Marketing Manager,2021-04-23,E006,Actif,virginie.leroy@techcorp.fr,CDD,Bordeaux
+E120,David,Blanc,H,Engineering,Lead Developer,2023-12-15,E007,Actif,david.blanc@techcorp.fr,CDI,Bordeaux
+E121,Nathalie,Vincent,F,Data & IA,Chef de Projet Data,2021-10-19,E001,Actif,nathalie.vincent@techcorp.fr,CDD,Lyon
+E122,Cédric,Garcia,H,Data & IA,Chef de Projet Data,2022-06-16,E001,Actif,cedric.garcia@techcorp.fr,Stage,Marseille
+E123,Nathan,Martin,H,Engineering,Lead Developer,2024-01-07,E007,Actif,nathan.martin@techcorp.fr,CDI,Toulouse
+E124,Sonia,Lefevre,F,Data & IA,Data Analyst,2020-08-15,E001,Actif,sonia.lefevre@techcorp.fr,Stage,Marseille
+E125,Xavier,Robert,H,RH,Responsable Formation,2021-05-22,E012,Actif,xavier.robert@techcorp.fr,CDI,Bordeaux
+E126,Arthur,Fournier,H,Marketing,SEO Specialist,2019-04-21,E006,Actif,arthur.fournier@techcorp.fr,Stage,Bordeaux
+E127,Morgane,Lefevre,F,Data & IA,Chef de Projet Data,2024-01-22,E001,Actif,morgane.lefevre@techcorp.fr,CDI,Lille
+E128,Raphaël,Nicolas,H,Data & IA,BI Developer,2021-02-19,E001,Inactif,raphael.nicolas@techcorp.fr,CDI,Nantes
+E129,Mélanie,David,F,Engineering,Data Engineer,2022-01-25,E007,Actif,melanie.david@techcorp.fr,CDI,Marseille
+E130,Nathan,Roux,H,Product,Product Owner,2019-05-16,E003,Actif,nathan.roux@techcorp.fr,CDD,Lyon
+E131,Xavier,Perrin,H,Product,Product Designer,2018-03-29,E003,Actif,xavier.perrin@techcorp.fr,CDI,Nantes
+E132,Théo,Michel,H,Engineering,Développeur Frontend,2024-03-20,E007,Actif,theo.michel@techcorp.fr,CDI,Nantes
+E133,Jade,Moreau,F,Product,Product Designer,2018-01-12,E003,Actif,jade.moreau@techcorp.fr,CDI,Bordeaux
+E134,Elisa,Durand,F,Marketing,Campaign Manager,2018-04-16,E006,Actif,elisa.durand@techcorp.fr,CDI,Nantes
+E135,Amandine,Laurent,F,Support & Ops,IT Support,2018-08-03,E002,Actif,amandine.laurent@techcorp.fr,CDD,Lyon
+E136,Quentin,François,H,Sales,Sales Manager,2023-10-04,E011,Actif,quentin.françois@techcorp.fr,CDD,Nantes
+E137,Arnaud,Mathieu,H,Engineering,Architecte Logiciel,2021-05-20,E007,Actif,arnaud.mathieu@techcorp.fr,CDI,Paris
+E138,Marine,Bonnet,F,Finance,Contrôleur de Gestion,2023-07-02,E040,Actif,marine.bonnet@techcorp.fr,CDD,Lyon
+E139,Kevin,Roussel,H,Sales,Business Developer,2018-09-27,E011,Actif,kevin.roussel@techcorp.fr,Stage,Marseille
+E140,Sarah,Rousseau,F,Data & IA,ML Engineer,2023-02-02,E001,Actif,sarah.rousseau@techcorp.fr,CDD,Lyon
+E141,Xavier,Morin,H,Engineering,Data Engineer,2024-03-08,E007,Actif,xavier.morin@techcorp.fr,CDI,Lille
+E142,Eva,Lambert,F,Sales,Sales Manager,2023-02-01,E011,Actif,eva.lambert@techcorp.fr,CDI,Marseille
+E143,Laurie,Mathieu,F,Engineering,Lead Developer,2022-03-14,E007,Actif,laurie.mathieu@techcorp.fr,CDD,Lyon
+E144,Benjamin,Richard,H,Engineering,DevOps Engineer,2019-01-31,E007,Actif,benjamin.richard@techcorp.fr,CDI,Bordeaux
+E145,Tristan,Guerin,H,Product,Product Designer,2021-09-12,E003,Actif,tristan.guerin@techcorp.fr,CDD,Marseille
+E146,Virginie,Thomas,F,Data & IA,ML Engineer,2021-07-03,E001,Actif,virginie.thomas@techcorp.fr,Stage,Nantes
+E147,Yann,Legrand,H,Sales,Business Developer,2019-03-20,E011,Actif,yann.legrand@techcorp.fr,Stage,Marseille
+E148,Cédric,Roux,H,Engineering,Architecte Logiciel,2020-07-15,E007,Actif,cedric.roux@techcorp.fr,Stage,Paris
+E149,Amandine,Laurent,F,Product,UX Designer,2021-06-19,E003,Actif,amandine.laurent@techcorp.fr,CDI,Paris
+E150,Dylan,Muller,H,Engineering,QA Engineer,2022-06-30,E007,Actif,dylan.muller@techcorp.fr,CDI,Lyon
+E151,Maxime,Lambert,H,Sales,Customer Success Manager,2021-10-28,E011,Actif,maxime.lambert@techcorp.fr,CDI,Marseille
+E152,Axel,Moreau,H,Marketing,Growth Hacker,2018-07-23,E006,Actif,axel.moreau@techcorp.fr,CDI,Strasbourg
+E153,Noémie,Roussel,F,Engineering,DevOps Engineer,2022-08-24,E007,Actif,noemie.roussel@techcorp.fr,Stage,Lyon
+E154,Mathilde,Durand,F,Data & IA,ML Engineer,2023-06-17,E001,Actif,mathilde.durand@techcorp.fr,CDI,Paris
+E155,Nathan,Roussel,H,Data & IA,Data Analyst,2018-02-01,E001,Actif,nathan.roussel@techcorp.fr,CDI,Bordeaux
+E156,Laura,Morel,F,Product,Product Manager,2018-02-01,E003,Actif,laura.morel@techcorp.fr,CDD,Bordeaux
+E157,Maxime,Blanc,H,Engineering,QA Engineer,2020-07-31,E007,Actif,maxime.blanc@techcorp.fr,CDI,Lyon
+E158,Yasmine,Dubois,F,Product,UI Designer,2018-03-18,E003,Actif,yasmine.dubois@techcorp.fr,CDI,Marseille
+E159,Romane,Dupont,F,Support & Ops,Office Manager,2021-03-31,E002,Actif,romane.dupont@techcorp.fr,CDI,Marseille
+E160,Victor,Martinez,H,Support & Ops,IT Support,2018-12-27,E002,Actif,victor.martinez@techcorp.fr,CDI,Nantes
+E161,Sabrina,Dupont,F,Data & IA,Data Engineer,2018-11-19,E001,Actif,sabrina.dupont@techcorp.fr,CDI,Marseille
+E162,Laurent,Robin,H,Finance,Comptable,2018-11-09,E040,Actif,laurent.robin@techcorp.fr,CDI,Nantes
+E163,Lucie,Lopez,F,Engineering,Data Engineer,2019-08-28,E007,Actif,lucie.lopez@techcorp.fr,CDI,Toulouse
+E164,Emile,Roussel,H,RH,Chargé de Recrutement,2018-11-05,E012,Actif,emile.roussel@techcorp.fr,CDD,Strasbourg
+E165,Valentine,Muller,F,Data & IA,Chef de Projet Data,2021-08-16,E001,Actif,valentine.muller@techcorp.fr,CDI,Bordeaux
+E166,Aurore,Legrand,F,Support & Ops,Office Manager,2021-05-25,E002,Actif,aurore.legrand@techcorp.fr,Stage,Paris
+E167,Océane,Robert,F,Engineering,Lead Developer,2023-03-07,E007,Actif,oceane.robert@techcorp.fr,CDI,Marseille
+E168,Aurore,Morin,F,Engineering,Data Engineer,2019-01-05,E007,Actif,aurore.morin@techcorp.fr,Stage,Lille
+E169,Sabrina,Guerin,F,Data & IA,Chef de Projet Data,2018-06-18,E001,Actif,sabrina.guerin@techcorp.fr,Stage,Nantes
+E170,Sarah,Legrand,F,Sales,Presales Engineer,2019-09-10,E011,Actif,sarah.legrand@techcorp.fr,CDD,Lyon
+E171,Victoria,Richard,F,Product,Product Designer,2019-12-08,E003,Inactif,victoria.richard@techcorp.fr,CDD,Strasbourg
+E172,Mathieu,Lefevre,H,Engineering,Lead Developer,2022-05-06,E007,Actif,mathieu.lefevre@techcorp.fr,CDI,Paris
+E173,Aurore,Girard,F,Product,Product Manager,2022-05-03,E003,Actif,aurore.girard@techcorp.fr,Stage,Bordeaux
+E174,Camille,Henry,F,Support & Ops,Ops Manager,2021-12-03,E002,Actif,camille.henry@techcorp.fr,CDD,Bordeaux
+E175,Julien,Guerin,H,RH,Responsable Formation,2021-09-07,E012,Actif,julien.guerin@techcorp.fr,Stage,Lyon
+E176,Océane,Lefevre,F,Engineering,Développeur Frontend,2022-01-25,E007,Actif,oceane.lefevre@techcorp.fr,CDI,Marseille
+E177,Elodie,Garcia,F,Sales,Business Developer,2019-09-27,E011,Actif,elodie.garcia@techcorp.fr,CDI,Paris
+E178,Jade,Nicolas,F,Support & Ops,Ops Manager,2022-03-24,E002,Actif,jade.nicolas@techcorp.fr,CDI,Bordeaux
+E179,Amélie,Lambert,F,Sales,Sales Manager,2020-08-30,E011,Actif,amelie.lambert@techcorp.fr,Stage,Toulouse
+E180,Eva,Blanc,F,Marketing,Growth Hacker,2021-06-21,E006,Actif,eva.blanc@techcorp.fr,CDD,Nantes
+E181,Valentine,Muller,F,Engineering,DevOps Engineer,2023-03-07,E007,Actif,valentine.muller@techcorp.fr,CDD,Lille
+E182,Ethan,Roussel,H,Engineering,Développeur Backend,2020-10-21,E007,Actif,ethan.roussel@techcorp.fr,CDD,Marseille
+E183,Alexis,Rousseau,H,Engineering,Data Engineer,2019-05-26,E007,Actif,alexis.rousseau@techcorp.fr,CDI,Toulouse
+E184,Océane,Moreau,F,Engineering,Data Engineer,2022-11-27,E007,Actif,oceane.moreau@techcorp.fr,CDI,Strasbourg
+E185,Amandine,Lambert,F,Engineering,Développeur Frontend,2022-06-12,E007,Actif,amandine.lambert@techcorp.fr,CDI,Lille
+E186,Mathieu,Garcia,H,Product,Product Manager,2021-07-29,E003,Actif,mathieu.garcia@techcorp.fr,CDI,Bordeaux
+E187,Arthur,Vincent,H,Sales,Customer Success Manager,2019-07-23,E011,Actif,arthur.vincent@techcorp.fr,CDD,Strasbourg
+E188,Benjamin,Bernard,H,Engineering,Lead Developer,2020-06-02,E007,Actif,benjamin.bernard@techcorp.fr,Stage,Lille
+E189,Charles,Vincent,H,Sales,Business Developer,2021-05-18,E011,Actif,charles.vincent@techcorp.fr,CDI,Lille
+E190,Aurore,Durand,F,Finance,Trésorier,2024-01-05,E040,Inactif,aurore.durand@techcorp.fr,Stage,Nantes
+E191,Hugo,Bonnet,H,Engineering,Développeur Frontend,2021-12-16,E007,Actif,hugo.bonnet@techcorp.fr,CDD,Bordeaux
+E192,Samuel,Lefevre,H,Support & Ops,Support Technique,2023-11-25,E002,Actif,samuel.lefevre@techcorp.fr,Stage,Paris
+E193,Nathalie,Dubois,F,Engineering,QA Engineer,2022-05-04,E007,Actif,nathalie.dubois@techcorp.fr,CDI,Paris
+E194,Aurore,André,F,Engineering,Développeur Backend,2019-03-01,E007,Actif,aurore.andré@techcorp.fr,CDI,Bordeaux
+E195,Lucas,Blanc,H,Data & IA,ML Engineer,2019-12-19,E001,Actif,lucas.blanc@techcorp.fr,CDD,Strasbourg
+E196,David,Robert,H,Data & IA,Chef de Projet Data,2023-02-18,E001,Inactif,david.robert@techcorp.fr,CDI,Paris
+E197,Arthur,Morel,H,Support & Ops,IT Support,2023-10-13,E002,Actif,arthur.morel@techcorp.fr,Stage,Strasbourg
+E198,Amélie,Chevalier,F,Engineering,QA Engineer,2020-02-22,E007,Actif,amelie.chevalier@techcorp.fr,CDI,Marseille
+E199,Chloé,Lefevre,F,Engineering,DevOps Engineer,2022-06-27,E007,Actif,chloe.lefevre@techcorp.fr,CDD,Marseille
+E200,Raphaël,Gauthier,H,RH,Responsable Formation,2022-02-13,E012,Actif,raphael.gauthier@techcorp.fr,Stage,Toulouse

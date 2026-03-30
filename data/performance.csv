@@ -1,0 +1,201 @@
+employee_id,trimestre,score_performance,objectifs_atteints_%,projets_complétés,eligible_promotion,commentaire,evaluateur_id
+E001,2023-T1,4.1,84,4,Non,Objectifs partiellement atteints,DG001
+E002,2022-T2,3.4,63,3,Non,Leadership reconnu par l'équipe,DG001
+E003,2023-T4,3.7,72,6,Non,En progression,DG001
+E004,2023-T2,3.5,70,7,Non,En progression,E002
+E005,2024-T1,4.4,91,2,Oui,Fort potentiel,E003
+E006,2022-T2,3.3,65,8,Non,Nécessite un accompagnement,DG001
+E007,2022-T1,3.1,61,7,Non,Objectifs partiellement atteints,DG001
+E008,2022-T3,3.3,66,6,Non,Nécessite un accompagnement,E007
+E009,2023-T4,4.4,91,8,Oui,Leadership reconnu par l'équipe,E001
+E010,2023-T4,4.6,87,2,Oui,Objectifs partiellement atteints,E007
+E011,2022-T4,3.9,76,6,Non,Dépasse les attentes,DG001
+E012,2023-T4,2.9,62,8,Non,Excellente collaboration,DG001
+E013,2022-T2,3.9,79,3,Non,Excellente collaboration,E006
+E014,2023-T3,4.3,86,1,Oui,Objectifs partiellement atteints,E001
+E015,2024-T1,2.9,56,6,Non,Excellente collaboration,E011
+E016,2024-T1,3.0,62,5,Non,Atteint les objectifs,E012
+E017,2022-T2,3.1,63,6,Non,Fort potentiel,E007
+E018,2023-T2,4.0,77,4,Non,Objectifs partiellement atteints,E006
+E019,2022-T1,3.9,73,3,Non,Fort potentiel,E007
+E020,2024-T1,4.5,92,3,Oui,En progression,E007
+E021,2023-T2,3.5,67,7,Non,Excellente collaboration,E011
+E022,2024-T1,4.0,83,8,Non,Excellente collaboration,E007
+E023,2022-T1,3.8,76,6,Non,Atteint les objectifs,E007
+E024,2023-T1,4.9,100,1,Oui,Leadership reconnu par l'équipe,E006
+E025,2022-T4,3.4,63,8,Non,En progression,E002
+E026,2023-T3,3.9,75,4,Non,Dépasse les attentes,E012
+E027,2022-T2,4.0,78,1,Non,Leadership reconnu par l'équipe,E007
+E028,2022-T3,3.5,71,4,Non,Objectifs partiellement atteints,E003
+E029,2023-T4,3.9,73,3,Non,Nécessite un accompagnement,E007
+E030,2023-T4,4.0,83,7,Non,Fort potentiel,E002
+E031,2023-T4,4.8,99,6,Oui,Fort potentiel,E007
+E032,2023-T1,4.2,88,8,Oui,Nécessite un accompagnement,E006
+E033,2023-T1,4.8,99,5,Oui,Nécessite un accompagnement,E007
+E034,2023-T1,4.8,95,4,Oui,Leadership reconnu par l'équipe,E007
+E035,2023-T2,3.5,73,5,Non,Excellente collaboration,E011
+E036,2024-T1,3.1,63,7,Non,Fort potentiel,E001
+E037,2022-T3,4.8,95,1,Oui,Excellente collaboration,E001
+E038,2022-T2,4.8,96,8,Oui,Excellente collaboration,E002
+E039,2022-T4,4.4,86,5,Oui,Excellente collaboration,E007
+E040,2022-T4,3.1,60,1,Non,Nécessite un accompagnement,DG001
+E041,2022-T1,4.1,78,7,Non,Fort potentiel,E012
+E042,2022-T2,4.3,91,3,Oui,Dépasse les attentes,E001
+E043,2022-T3,4.8,97,8,Oui,Leadership reconnu par l'équipe,E007
+E044,2023-T1,4.2,84,5,Non,Dépasse les attentes,E011
+E045,2022-T2,4.7,99,4,Oui,Dépasse les attentes,E012
+E046,2022-T3,4.7,95,3,Oui,Dépasse les attentes,E007
+E047,2023-T3,4.9,100,3,Oui,Excellente collaboration,E006
+E048,2022-T1,4.6,91,2,Oui,Fort potentiel,E003
+E049,2024-T1,3.4,71,8,Non,En progression,E001
+E050,2023-T4,4.6,91,4,Oui,Atteint les objectifs,E003
+E051,2023-T4,3.5,75,5,Non,En progression,E003
+E052,2023-T2,2.8,55,4,Non,En progression,E003
+E053,2023-T3,4.1,83,6,Non,Atteint les objectifs,E003
+E054,2022-T2,3.6,69,3,Non,Leadership reconnu par l'équipe,E011
+E055,2022-T4,3.5,65,5,Non,Objectifs partiellement atteints,E007
+E056,2023-T1,3.3,66,5,Non,Dépasse les attentes,E007
+E057,2023-T2,3.3,64,1,Non,Atteint les objectifs,E012
+E058,2022-T3,3.8,77,5,Non,Atteint les objectifs,E002
+E059,2023-T1,4.1,82,4,Non,Nécessite un accompagnement,E007
+E060,2023-T4,4.8,93,8,Oui,Fort potentiel,E001
+E061,2024-T1,3.7,76,4,Non,Nécessite un accompagnement,E003
+E062,2022-T2,4.2,87,8,Oui,Fort potentiel,E007
+E063,2022-T2,3.0,55,4,Non,En progression,E011
+E064,2024-T1,3.1,64,2,Non,Nécessite un accompagnement,E040
+E065,2023-T4,4.3,82,8,Non,Dépasse les attentes,E011
+E066,2024-T1,3.8,77,8,Non,Dépasse les attentes,E001
+E067,2023-T1,4.0,75,7,Non,Excellente collaboration,E006
+E068,2022-T4,4.5,94,2,Oui,Dépasse les attentes,E007
+E069,2022-T2,3.7,77,1,Non,Atteint les objectifs,E007
+E070,2023-T4,4.9,93,5,Oui,Objectifs partiellement atteints,E040
+E071,2022-T3,3.2,69,7,Non,Fort potentiel,E011
+E072,2023-T3,4.9,100,7,Oui,Objectifs partiellement atteints,E040
+E073,2024-T1,3.0,57,6,Non,Atteint les objectifs,E001
+E074,2024-T1,3.2,65,3,Non,Nécessite un accompagnement,E001
+E075,2022-T1,4.6,91,8,Oui,Objectifs partiellement atteints,E012
+E076,2022-T4,3.9,76,8,Non,Fort potentiel,E007
+E077,2022-T4,3.1,58,1,Non,Objectifs partiellement atteints,E003
+E078,2022-T1,4.1,80,4,Non,Atteint les objectifs,E001
+E079,2022-T1,3.0,62,1,Non,Nécessite un accompagnement,E007
+E080,2023-T3,4.4,90,4,Oui,Nécessite un accompagnement,E002
+E081,2022-T1,4.4,85,5,Oui,Nécessite un accompagnement,E001
+E082,2023-T2,4.5,94,6,Oui,Nécessite un accompagnement,E006
+E083,2022-T3,3.4,73,4,Non,Objectifs partiellement atteints,E003
+E084,2022-T1,3.4,71,3,Non,Objectifs partiellement atteints,E006
+E085,2022-T1,4.0,80,7,Non,Fort potentiel,E011
+E086,2023-T3,4.3,83,5,Non,Objectifs partiellement atteints,E007
+E087,2024-T1,3.2,66,4,Non,Nécessite un accompagnement,E007
+E088,2022-T3,3.4,70,1,Non,Objectifs partiellement atteints,E011
+E089,2024-T1,4.8,99,3,Oui,Objectifs partiellement atteints,E006
+E090,2022-T4,3.3,66,2,Non,Leadership reconnu par l'équipe,E040
+E091,2022-T2,4.6,95,4,Oui,Dépasse les attentes,E001
+E092,2022-T1,3.4,64,4,Non,Nécessite un accompagnement,E001
+E093,2023-T2,3.8,75,1,Non,Nécessite un accompagnement,E011
+E094,2022-T2,4.8,98,4,Oui,Nécessite un accompagnement,E003
+E095,2022-T4,3.6,75,6,Non,Excellente collaboration,E011
+E096,2024-T1,3.6,77,6,Non,Excellente collaboration,E001
+E097,2024-T1,3.3,68,8,Non,Atteint les objectifs,E007
+E098,2023-T4,4.5,90,4,Oui,Fort potentiel,E002
+E099,2022-T1,3.5,74,4,Non,En progression,E003
+E100,2024-T1,2.8,60,7,Non,Excellente collaboration,E007
+E101,2023-T2,3.1,60,7,Non,Nécessite un accompagnement,E040
+E102,2023-T2,3.8,75,8,Non,Leadership reconnu par l'équipe,E007
+E103,2023-T2,3.8,73,3,Non,Leadership reconnu par l'équipe,E007
+E104,2024-T1,3.2,69,1,Non,Dépasse les attentes,E002
+E105,2022-T2,4.6,97,1,Oui,Dépasse les attentes,E003
+E106,2022-T4,3.7,70,3,Non,Dépasse les attentes,E003
+E107,2023-T4,3.3,66,1,Non,Leadership reconnu par l'équipe,E006
+E108,2022-T1,4.2,79,7,Non,Dépasse les attentes,E006
+E109,2023-T1,2.8,59,5,Non,Dépasse les attentes,E002
+E110,2023-T3,3.9,75,2,Non,Atteint les objectifs,E006
+E111,2022-T4,3.9,76,5,Non,Fort potentiel,E040
+E112,2023-T3,3.4,64,6,Non,Objectifs partiellement atteints,E006
+E113,2022-T4,3.8,74,5,Non,Atteint les objectifs,E007
+E114,2022-T1,4.2,80,7,Non,Objectifs partiellement atteints,E007
+E115,2023-T4,3.6,67,1,Non,En progression,E012
+E116,2023-T3,3.0,65,6,Non,Atteint les objectifs,E011
+E117,2022-T1,4.7,92,4,Oui,Leadership reconnu par l'équipe,E011
+E118,2022-T2,3.4,73,5,Non,Dépasse les attentes,E006
+E119,2023-T2,3.2,59,4,Non,En progression,E006
+E120,2023-T3,4.4,84,5,Non,En progression,E007
+E121,2023-T3,4.0,85,6,Non,Objectifs partiellement atteints,E001
+E122,2022-T3,4.4,84,6,Non,Dépasse les attentes,E001
+E123,2022-T4,3.0,56,6,Non,Objectifs partiellement atteints,E007
+E124,2023-T2,4.8,91,5,Oui,Leadership reconnu par l'équipe,E001
+E125,2023-T2,3.8,79,7,Non,Objectifs partiellement atteints,E012
+E126,2023-T3,3.2,60,5,Non,Nécessite un accompagnement,E006
+E127,2022-T2,4.3,85,3,Oui,Objectifs partiellement atteints,E001
+E128,2022-T3,4.3,87,6,Oui,Fort potentiel,E001
+E129,2022-T1,3.0,59,8,Non,Fort potentiel,E007
+E130,2022-T2,4.4,85,2,Oui,En progression,E003
+E131,2024-T1,3.7,77,7,Non,Atteint les objectifs,E003
+E132,2023-T2,2.9,61,2,Non,Fort potentiel,E007
+E133,2022-T1,4.6,91,7,Oui,Objectifs partiellement atteints,E003
+E134,2024-T1,4.4,86,3,Oui,Objectifs partiellement atteints,E006
+E135,2023-T1,3.2,63,5,Non,Leadership reconnu par l'équipe,E002
+E136,2022-T3,3.1,63,5,Non,Objectifs partiellement atteints,E011
+E137,2022-T2,3.4,68,5,Non,Nécessite un accompagnement,E007
+E138,2023-T4,4.3,90,4,Oui,Leadership reconnu par l'équipe,E040
+E139,2023-T1,3.0,55,7,Non,Fort potentiel,E011
+E140,2023-T3,4.6,92,8,Oui,Fort potentiel,E001
+E141,2022-T3,3.7,73,6,Non,Nécessite un accompagnement,E007
+E142,2022-T3,3.8,77,6,Non,Excellente collaboration,E011
+E143,2023-T4,4.3,90,4,Oui,Fort potentiel,E007
+E144,2023-T3,3.6,72,2,Non,Nécessite un accompagnement,E007
+E145,2024-T1,4.0,77,1,Non,Leadership reconnu par l'équipe,E003
+E146,2022-T4,4.8,98,5,Oui,Atteint les objectifs,E001
+E147,2023-T3,4.5,95,8,Oui,En progression,E011
+E148,2022-T4,4.1,81,3,Non,Objectifs partiellement atteints,E007
+E149,2022-T2,4.5,92,8,Oui,Objectifs partiellement atteints,E003
+E150,2023-T3,3.9,81,1,Non,Fort potentiel,E007
+E151,2024-T1,4.3,90,2,Oui,Atteint les objectifs,E011
+E152,2023-T2,4.4,85,1,Oui,Objectifs partiellement atteints,E006
+E153,2023-T2,4.8,97,2,Oui,Dépasse les attentes,E007
+E154,2022-T4,3.0,63,4,Non,Leadership reconnu par l'équipe,E001
+E155,2023-T4,3.6,77,3,Non,Fort potentiel,E001
+E156,2023-T4,4.9,94,5,Oui,Objectifs partiellement atteints,E003
+E157,2022-T2,4.7,90,3,Oui,Fort potentiel,E007
+E158,2023-T4,3.5,68,8,Non,Fort potentiel,E003
+E159,2023-T4,3.8,78,6,Non,Atteint les objectifs,E002
+E160,2022-T2,3.4,63,6,Non,Atteint les objectifs,E002
+E161,2022-T3,4.2,82,3,Non,En progression,E001
+E162,2023-T3,3.5,72,4,Non,Objectifs partiellement atteints,E040
+E163,2022-T3,4.1,87,7,Non,Objectifs partiellement atteints,E007
+E164,2022-T4,2.9,60,7,Non,Objectifs partiellement atteints,E012
+E165,2022-T4,2.8,54,5,Non,Atteint les objectifs,E001
+E166,2024-T1,4.0,77,6,Non,Fort potentiel,E002
+E167,2022-T2,3.2,63,8,Non,Fort potentiel,E007
+E168,2023-T3,4.1,86,2,Non,Fort potentiel,E007
+E169,2023-T4,3.5,74,3,Non,Excellente collaboration,E001
+E170,2022-T2,4.7,99,3,Oui,Fort potentiel,E011
+E171,2023-T1,3.0,56,3,Non,Fort potentiel,E003
+E172,2024-T1,4.3,87,7,Oui,En progression,E007
+E173,2023-T3,4.0,77,8,Non,En progression,E003
+E174,2023-T4,4.0,79,3,Non,En progression,E002
+E175,2023-T4,3.5,74,1,Non,Fort potentiel,E012
+E176,2023-T4,4.8,93,4,Oui,Objectifs partiellement atteints,E007
+E177,2024-T1,4.8,100,8,Oui,Objectifs partiellement atteints,E011
+E178,2023-T3,4.2,86,8,Oui,En progression,E002
+E179,2022-T1,3.0,58,5,Non,Dépasse les attentes,E011
+E180,2024-T1,3.4,67,3,Non,Leadership reconnu par l'équipe,E006
+E181,2023-T4,4.0,83,2,Non,Atteint les objectifs,E007
+E182,2024-T1,3.4,68,1,Non,Leadership reconnu par l'équipe,E007
+E183,2023-T3,3.9,74,4,Non,Excellente collaboration,E007
+E184,2022-T1,4.6,94,5,Oui,Fort potentiel,E007
+E185,2022-T2,4.6,94,2,Oui,Nécessite un accompagnement,E007
+E186,2023-T2,3.2,68,7,Non,En progression,E003
+E187,2022-T4,4.1,80,1,Non,Fort potentiel,E011
+E188,2024-T1,3.9,75,6,Non,Excellente collaboration,E007
+E189,2023-T1,3.4,71,2,Non,En progression,E011
+E190,2023-T3,4.8,91,5,Oui,En progression,E040
+E191,2022-T3,4.3,84,3,Non,Fort potentiel,E007
+E192,2023-T3,4.5,92,3,Oui,Excellente collaboration,E002
+E193,2023-T3,4.1,84,2,Non,Atteint les objectifs,E007
+E194,2023-T1,3.6,72,8,Non,Leadership reconnu par l'équipe,E007
+E195,2022-T1,3.5,66,8,Non,Fort potentiel,E001
+E196,2024-T1,4.6,93,4,Oui,Objectifs partiellement atteints,E001
+E197,2023-T4,4.5,89,6,Oui,Excellente collaboration,E002
+E198,2022-T3,3.5,74,8,Non,Fort potentiel,E007
+E199,2022-T1,4.7,89,2,Oui,Leadership reconnu par l'équipe,E007
+E200,2022-T3,2.8,58,8,Non,Dépasse les attentes,E012

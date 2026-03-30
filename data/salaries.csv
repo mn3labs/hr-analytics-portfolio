@@ -1,0 +1,201 @@
+employee_id,salaire_base,bonus,salaire_total,date_révision,évolution_%,devise,fréquence_paiement,avantages
+E001,61716,8464,70180,2023-11-20,6.3,EUR,Mensuelle,Mutuelle + CE
+E002,43262,5516,48778,2023-05-31,8.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E003,64505,5054,69559,2022-12-27,2.3,EUR,Mensuelle,CE + Mutuelle + Tickets
+E004,35696,4126,39822,2023-03-04,6.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E005,49384,7757,57141,2023-06-20,7.2,EUR,Mensuelle,Tickets resto + Mutuelle
+E006,41732,2161,43893,2022-07-24,6.2,EUR,Mensuelle,Tickets resto + Remote
+E007,66677,3609,70286,2022-09-14,3.5,EUR,Mensuelle,Mutuelle + CE
+E008,57307,7655,64962,2024-02-11,3.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E009,48387,7359,55746,2023-11-23,2.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E010,60179,8507,68686,2022-09-01,5.4,EUR,Mensuelle,CE + Mutuelle + Tickets
+E011,50135,7511,57646,2023-11-12,3.5,EUR,Mensuelle,Tickets resto + Mutuelle
+E012,42054,3706,45760,2023-12-03,8.2,EUR,Mensuelle,Tickets resto + Remote
+E013,57472,2187,59659,2022-07-27,6.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E014,75226,11965,87191,2022-08-19,4.6,EUR,Mensuelle,Tickets resto + Remote
+E015,49828,5580,55408,2024-03-05,5.7,EUR,Mensuelle,Mutuelle + CE
+E016,37881,2144,40025,2022-07-11,6.3,EUR,Mensuelle,Mutuelle + CE
+E017,66509,3185,69694,2022-10-13,1.8,EUR,Mensuelle,CE + Mutuelle + Tickets
+E018,41779,2261,44040,2022-01-06,7.4,EUR,Mensuelle,Tickets resto + Remote
+E019,60936,10397,71333,2022-11-27,1.8,EUR,Mensuelle,CE + Mutuelle + Tickets
+E020,51144,8687,59831,2023-11-09,5.8,EUR,Mensuelle,Tickets resto + Remote
+E021,51950,6021,57971,2024-03-13,4.0,EUR,Mensuelle,Tickets resto + Remote
+E022,59001,10239,69240,2024-03-16,5.1,EUR,Mensuelle,CE + Mutuelle + Tickets
+E023,52349,5834,58183,2022-12-24,4.3,EUR,Mensuelle,Mutuelle + CE
+E024,52860,6845,59705,2022-10-28,3.8,EUR,Mensuelle,Mutuelle + CE
+E025,37186,4564,41750,2023-07-29,4.8,EUR,Mensuelle,Tickets resto + Mutuelle
+E026,38237,3131,41368,2023-10-20,3.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E027,68546,4563,73109,2022-11-25,1.8,EUR,Mensuelle,Mutuelle + PEE
+E028,57672,9905,67577,2023-07-08,4.2,EUR,Mensuelle,Tickets resto + Remote
+E029,58624,6303,64927,2023-06-11,6.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E030,38417,1405,39822,2022-07-17,7.8,EUR,Mensuelle,Tickets resto + Remote
+E031,58874,10139,69013,2024-03-02,2.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E032,42078,5219,47297,2023-10-07,3.0,EUR,Mensuelle,Mutuelle + CE
+E033,70540,6604,77144,2023-07-05,2.2,EUR,Mensuelle,Mutuelle + PEE
+E034,65526,11202,76728,2022-06-07,6.7,EUR,Mensuelle,Tickets resto + Mutuelle
+E035,56521,4507,61028,2022-02-25,2.1,EUR,Mensuelle,Mutuelle + CE
+E036,65930,7497,73427,2022-08-22,5.5,EUR,Mensuelle,Tickets resto + Remote
+E037,58491,5712,64203,2022-11-20,4.3,EUR,Mensuelle,Tickets resto + Mutuelle
+E038,41003,1957,42960,2024-01-08,1.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E039,51281,7276,58557,2022-03-16,1.8,EUR,Mensuelle,Tickets resto + Remote
+E040,46258,2124,48382,2022-11-05,7.0,EUR,Mensuelle,CE + Mutuelle + Tickets
+E041,39590,5732,45322,2023-02-09,4.6,EUR,Mensuelle,Tickets resto + Mutuelle
+E042,70487,7754,78241,2023-02-05,2.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E043,59034,7385,66419,2024-03-25,3.6,EUR,Mensuelle,Tickets resto + Remote
+E044,59302,1878,61180,2022-05-25,7.6,EUR,Mensuelle,Tickets resto + Mutuelle
+E045,42375,4911,47286,2023-07-15,4.3,EUR,Mensuelle,Tickets resto + Mutuelle
+E046,53962,7675,61637,2022-12-19,7.8,EUR,Mensuelle,Mutuelle + CE
+E047,48906,6205,55111,2022-06-14,5.1,EUR,Mensuelle,Mutuelle + CE
+E048,53239,8263,61502,2022-07-05,2.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E049,63827,10066,73893,2023-07-17,8.0,EUR,Mensuelle,Mutuelle + PEE
+E050,52828,2164,54992,2022-09-14,6.2,EUR,Mensuelle,Tickets resto + Mutuelle
+E051,59735,6994,66729,2023-01-01,8.2,EUR,Mensuelle,Mutuelle + CE
+E052,55324,3606,58930,2022-03-13,3.5,EUR,Mensuelle,Mutuelle + CE
+E053,49690,4849,54539,2022-11-10,5.8,EUR,Mensuelle,CE + Mutuelle + Tickets
+E054,41050,4721,45771,2023-03-15,7.2,EUR,Mensuelle,Mutuelle + CE
+E055,48043,3215,51258,2024-01-28,3.1,EUR,Mensuelle,Mutuelle + PEE
+E056,56241,4719,60960,2022-12-06,6.3,EUR,Mensuelle,Mutuelle + PEE
+E057,46694,3913,50607,2023-07-19,3.6,EUR,Mensuelle,Tickets resto + Mutuelle
+E058,41127,4976,46103,2022-05-24,7.4,EUR,Mensuelle,CE + Mutuelle + Tickets
+E059,60530,8476,69006,2024-01-15,5.9,EUR,Mensuelle,Tickets resto + Mutuelle
+E060,72705,11446,84151,2023-08-19,5.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E061,52769,6253,59022,2023-07-19,7.8,EUR,Mensuelle,Tickets resto + Remote
+E062,59202,10645,69847,2024-03-04,4.8,EUR,Mensuelle,Mutuelle + CE
+E063,45741,2904,48645,2024-01-21,6.9,EUR,Mensuelle,Tickets resto + Remote
+E064,41884,4404,46288,2023-01-08,2.1,EUR,Mensuelle,CE + Mutuelle + Tickets
+E065,44461,2926,47387,2023-09-21,8.2,EUR,Mensuelle,Mutuelle + CE
+E066,65486,3343,68829,2023-08-03,2.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E067,47059,8242,55301,2023-05-11,6.7,EUR,Mensuelle,Tickets resto + Remote
+E068,56208,8106,64314,2022-09-28,3.1,EUR,Mensuelle,Tickets resto + Remote
+E069,58357,7603,65960,2024-03-21,5.1,EUR,Mensuelle,Tickets resto + Remote
+E070,42047,7050,49097,2022-02-10,7.7,EUR,Mensuelle,Tickets resto + Remote
+E071,45433,7962,53395,2022-10-08,5.9,EUR,Mensuelle,Tickets resto + Remote
+E072,47173,5449,52622,2023-01-23,4.1,EUR,Mensuelle,Tickets resto + Remote
+E073,66252,10913,77165,2022-09-15,2.0,EUR,Mensuelle,Mutuelle + PEE
+E074,68072,4318,72390,2022-12-20,4.3,EUR,Mensuelle,Mutuelle + PEE
+E075,42711,6965,49676,2022-05-23,1.5,EUR,Mensuelle,Mutuelle + PEE
+E076,55008,2286,57294,2022-08-05,6.0,EUR,Mensuelle,Mutuelle + CE
+E077,48434,4084,52518,2022-05-02,6.5,EUR,Mensuelle,Mutuelle + CE
+E078,69775,5549,75324,2023-11-23,2.3,EUR,Mensuelle,Mutuelle + PEE
+E079,66257,7859,74116,2023-02-25,6.0,EUR,Mensuelle,Tickets resto + Mutuelle
+E080,34205,1682,35887,2022-05-18,5.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E081,62470,7236,69706,2022-09-22,1.9,EUR,Mensuelle,Mutuelle + CE
+E082,49779,4520,54299,2023-10-15,8.3,EUR,Mensuelle,Tickets resto + Mutuelle
+E083,55073,7665,62738,2022-03-29,7.2,EUR,Mensuelle,Mutuelle + CE
+E084,49213,8805,58018,2022-06-24,7.6,EUR,Mensuelle,Mutuelle + CE
+E085,57968,6963,64931,2024-02-25,7.1,EUR,Mensuelle,Mutuelle + CE
+E086,60087,6406,66493,2023-12-04,2.7,EUR,Mensuelle,Tickets resto + Remote
+E087,58228,6957,65185,2023-01-23,2.0,EUR,Mensuelle,Mutuelle + PEE
+E088,48188,1565,49753,2023-06-01,5.2,EUR,Mensuelle,Mutuelle + PEE
+E089,46502,5618,52120,2023-09-22,2.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E090,46604,6877,53481,2022-05-01,5.0,EUR,Mensuelle,Tickets resto + Mutuelle
+E091,62186,3081,65267,2022-01-02,5.7,EUR,Mensuelle,Mutuelle + PEE
+E092,57064,4882,61946,2023-06-27,1.8,EUR,Mensuelle,Mutuelle + PEE
+E093,54109,8135,62244,2023-01-26,7.0,EUR,Mensuelle,Tickets resto + Remote
+E094,54534,7700,62234,2023-12-15,6.8,EUR,Mensuelle,CE + Mutuelle + Tickets
+E095,50276,2517,52793,2022-08-27,4.8,EUR,Mensuelle,Tickets resto + Mutuelle
+E096,62599,10110,72709,2022-07-13,4.4,EUR,Mensuelle,Tickets resto + Mutuelle
+E097,66221,9828,76049,2022-05-01,5.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E098,35655,4570,40225,2022-11-20,6.3,EUR,Mensuelle,Mutuelle + PEE
+E099,52357,2786,55143,2022-09-17,6.1,EUR,Mensuelle,Tickets resto + Remote
+E100,60070,5618,65688,2022-10-10,4.1,EUR,Mensuelle,Mutuelle + PEE
+E101,44908,4130,49038,2023-05-10,7.0,EUR,Mensuelle,Mutuelle + CE
+E102,49509,5606,55115,2022-11-11,3.3,EUR,Mensuelle,CE + Mutuelle + Tickets
+E103,54402,7389,61791,2023-11-07,6.7,EUR,Mensuelle,Tickets resto + Mutuelle
+E104,37381,3625,41006,2022-06-15,6.4,EUR,Mensuelle,Tickets resto + Mutuelle
+E105,48698,4386,53084,2023-07-18,3.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E106,57811,7863,65674,2023-10-14,2.6,EUR,Mensuelle,Tickets resto + Mutuelle
+E107,50236,7710,57946,2023-09-07,4.8,EUR,Mensuelle,Mutuelle + PEE
+E108,44220,3071,47291,2023-09-16,4.1,EUR,Mensuelle,Tickets resto + Mutuelle
+E109,38704,6564,45268,2023-11-03,4.3,EUR,Mensuelle,CE + Mutuelle + Tickets
+E110,43926,7666,51592,2024-03-03,1.9,EUR,Mensuelle,Mutuelle + CE
+E111,51294,4916,56210,2023-11-04,2.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E112,47842,1676,49518,2023-06-13,5.7,EUR,Mensuelle,Mutuelle + CE
+E113,54818,7186,62004,2023-11-02,4.0,EUR,Mensuelle,Tickets resto + Mutuelle
+E114,63999,2753,66752,2023-02-14,3.4,EUR,Mensuelle,Tickets resto + Remote
+E115,40359,3665,44024,2022-01-16,2.9,EUR,Mensuelle,Tickets resto + Mutuelle
+E116,51551,5796,57347,2023-07-27,6.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E117,48005,8376,56381,2023-09-13,3.4,EUR,Mensuelle,Mutuelle + CE
+E118,53179,4817,57996,2022-06-29,1.5,EUR,Mensuelle,Mutuelle + PEE
+E119,47732,5431,53163,2022-12-15,5.0,EUR,Mensuelle,Tickets resto + Mutuelle
+E120,56902,9872,66774,2024-03-23,7.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E121,59401,5727,65128,2023-05-11,4.1,EUR,Mensuelle,Mutuelle + CE
+E122,62689,10919,73608,2023-04-17,4.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E123,54968,5622,60590,2023-01-27,3.3,EUR,Mensuelle,Mutuelle + CE
+E124,67322,4341,71663,2022-12-28,3.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E125,42555,5750,48305,2022-10-22,3.3,EUR,Mensuelle,Tickets resto + Mutuelle
+E126,50751,7222,57973,2023-07-22,3.9,EUR,Mensuelle,Mutuelle + CE
+E127,53718,4460,58178,2022-10-03,7.8,EUR,Mensuelle,Mutuelle + CE
+E128,67765,8976,76741,2023-05-26,7.9,EUR,Mensuelle,Mutuelle + CE
+E129,53186,3526,56712,2022-08-23,3.4,EUR,Mensuelle,Mutuelle + CE
+E130,63615,9888,73503,2024-03-08,4.0,EUR,Mensuelle,Tickets resto + Mutuelle
+E131,58990,2464,61454,2023-05-20,8.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E132,45473,7210,52683,2023-05-09,8.2,EUR,Mensuelle,Tickets resto + Remote
+E133,63798,6625,70423,2023-08-12,8.4,EUR,Mensuelle,Tickets resto + Remote
+E134,53482,9501,62983,2022-10-14,7.9,EUR,Mensuelle,Mutuelle + PEE
+E135,41419,4825,46244,2024-03-29,1.9,EUR,Mensuelle,Mutuelle + PEE
+E136,44472,4941,49413,2023-02-08,5.0,EUR,Mensuelle,Mutuelle + CE
+E137,58244,2798,61042,2022-11-20,5.1,EUR,Mensuelle,Tickets resto + Mutuelle
+E138,39112,2409,41521,2022-11-30,5.6,EUR,Mensuelle,Tickets resto + Remote
+E139,58134,4008,62142,2022-08-31,5.3,EUR,Mensuelle,Tickets resto + Remote
+E140,56456,6885,63341,2023-05-26,4.1,EUR,Mensuelle,Mutuelle + PEE
+E141,47736,6449,54185,2023-02-15,4.1,EUR,Mensuelle,Tickets resto + Remote
+E142,44182,5112,49294,2023-12-04,8.4,EUR,Mensuelle,Mutuelle + CE
+E143,59617,8234,67851,2023-07-23,7.1,EUR,Mensuelle,Mutuelle + PEE
+E144,67855,4031,71886,2024-01-27,7.1,EUR,Mensuelle,Mutuelle + CE
+E145,55660,1751,57411,2022-05-18,4.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E146,62807,4858,67665,2022-09-14,4.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E147,58264,2164,60428,2022-06-17,2.2,EUR,Mensuelle,Tickets resto + Mutuelle
+E148,58151,3962,62113,2022-04-09,7.4,EUR,Mensuelle,Mutuelle + PEE
+E149,58268,4018,62286,2023-07-25,4.0,EUR,Mensuelle,Tickets resto + Remote
+E150,54399,4991,59390,2023-11-27,4.0,EUR,Mensuelle,CE + Mutuelle + Tickets
+E151,46439,5404,51843,2022-06-28,6.0,EUR,Mensuelle,Tickets resto + Remote
+E152,52342,6855,59197,2024-01-25,4.9,EUR,Mensuelle,Mutuelle + PEE
+E153,60454,5269,65723,2023-10-09,3.5,EUR,Mensuelle,Mutuelle + CE
+E154,61219,7718,68937,2023-03-08,8.0,EUR,Mensuelle,CE + Mutuelle + Tickets
+E155,71659,11274,82933,2022-06-15,2.0,EUR,Mensuelle,Tickets resto + Remote
+E156,60030,4654,64684,2022-10-01,3.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E157,62915,4447,67362,2023-01-07,4.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E158,62840,6129,68969,2022-01-24,2.7,EUR,Mensuelle,Mutuelle + CE
+E159,40194,5197,45391,2023-12-19,8.1,EUR,Mensuelle,Tickets resto + Mutuelle
+E160,41346,3702,45048,2023-04-30,2.2,EUR,Mensuelle,CE + Mutuelle + Tickets
+E161,65445,9531,74976,2022-03-27,5.2,EUR,Mensuelle,Tickets resto + Mutuelle
+E162,50167,2673,52840,2023-02-04,6.1,EUR,Mensuelle,Tickets resto + Remote
+E163,60895,8564,69459,2022-05-10,4.6,EUR,Mensuelle,Mutuelle + CE
+E164,47116,2619,49735,2023-01-01,1.7,EUR,Mensuelle,Tickets resto + Remote
+E165,66770,6682,73452,2022-10-06,7.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E166,38412,6738,45150,2022-07-01,6.4,EUR,Mensuelle,CE + Mutuelle + Tickets
+E167,54623,6809,61432,2023-08-01,6.0,EUR,Mensuelle,Mutuelle + PEE
+E168,64160,8079,72239,2022-12-22,3.7,EUR,Mensuelle,Mutuelle + PEE
+E169,71276,10741,82017,2023-01-10,4.6,EUR,Mensuelle,Mutuelle + PEE
+E170,51977,3926,55903,2024-02-16,1.5,EUR,Mensuelle,Mutuelle + CE
+E171,58901,5912,64813,2023-05-19,1.6,EUR,Mensuelle,Mutuelle + PEE
+E172,53905,7809,61714,2023-09-04,7.1,EUR,Mensuelle,Mutuelle + CE
+E173,56528,6344,62872,2023-07-29,2.8,EUR,Mensuelle,Mutuelle + PEE
+E174,38096,2075,40171,2023-02-04,6.7,EUR,Mensuelle,Mutuelle + PEE
+E175,40475,1695,42170,2023-06-14,5.9,EUR,Mensuelle,CE + Mutuelle + Tickets
+E176,59544,7901,67445,2024-01-31,3.5,EUR,Mensuelle,CE + Mutuelle + Tickets
+E177,57742,5308,63050,2022-07-06,7.5,EUR,Mensuelle,Mutuelle + CE
+E178,35964,4514,40478,2022-10-06,5.8,EUR,Mensuelle,CE + Mutuelle + Tickets
+E179,51965,4058,56023,2023-07-02,2.6,EUR,Mensuelle,Tickets resto + Mutuelle
+E180,45041,2042,47083,2024-01-03,3.4,EUR,Mensuelle,Mutuelle + PEE
+E181,56060,3639,59699,2023-05-21,2.6,EUR,Mensuelle,Mutuelle + CE
+E182,59555,4570,64125,2023-01-16,7.1,EUR,Mensuelle,Mutuelle + PEE
+E183,66085,2297,68382,2024-02-08,2.1,EUR,Mensuelle,Mutuelle + CE
+E184,51202,7493,58695,2023-04-27,2.0,EUR,Mensuelle,Mutuelle + CE
+E185,52713,8235,60948,2022-01-13,7.2,EUR,Mensuelle,Tickets resto + Mutuelle
+E186,60476,8297,68773,2023-03-30,4.2,EUR,Mensuelle,Mutuelle + CE
+E187,56994,1996,58990,2024-02-29,4.7,EUR,Mensuelle,Tickets resto + Mutuelle
+E188,61544,10912,72456,2023-11-29,4.8,EUR,Mensuelle,Tickets resto + Remote
+E189,54180,2914,57094,2024-02-02,6.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E190,41263,2805,44068,2022-07-23,6.0,EUR,Mensuelle,Tickets resto + Remote
+E191,63021,10054,73075,2022-04-26,3.0,EUR,Mensuelle,Mutuelle + CE
+E192,36657,2884,39541,2022-10-10,2.7,EUR,Mensuelle,CE + Mutuelle + Tickets
+E193,51908,7701,59609,2022-02-13,1.6,EUR,Mensuelle,CE + Mutuelle + Tickets
+E194,67046,6791,73837,2023-01-16,5.7,EUR,Mensuelle,Tickets resto + Mutuelle
+E195,64984,6822,71806,2022-12-13,6.3,EUR,Mensuelle,Tickets resto + Mutuelle
+E196,51517,6526,58043,2024-03-21,6.4,EUR,Mensuelle,Tickets resto + Mutuelle
+E197,33462,2171,35633,2024-03-18,8.4,EUR,Mensuelle,Tickets resto + Remote
+E198,64701,6198,70899,2023-12-07,2.9,EUR,Mensuelle,Mutuelle + PEE
+E199,54555,2739,57294,2023-05-12,7.8,EUR,Mensuelle,Mutuelle + PEE
+E200,41169,4586,45755,2023-08-04,4.9,EUR,Mensuelle,Mutuelle + CE

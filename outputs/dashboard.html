@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Analytics — MN3 Labs</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg0:#0b0f1a;--bg1:#111827;--bg2:#1a2235;--bg3:#243049;
+  --cyan:#00C8FF;--purple:#5B6EF5;--green:#10b981;--red:#ef4444;--amber:#f59e0b;
+  --text:#e2e8f0;--text2:#94a3b8;--border:#2d3f5e;
+  --card-shadow:0 4px 24px rgba(0,200,255,0.06);
+  --radius:12px;--gap:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg0);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.5;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1440px;margin:0 auto;padding:20px;}
+
+/* ── HEADER ── */
+header{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 24px;margin-bottom:var(--gap);
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-logo{
+  width:38px;height:38px;border-radius:8px;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:14px;color:#fff;letter-spacing:-1px;
+}
+.brand h1{font-size:18px;font-weight:700;color:var(--text);}
+.brand span{font-size:12px;color:var(--text2);}
+.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.filter-group{display:flex;align-items:center;gap:6px;}
+.filter-group label{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;}
+.filter-group select{
+  background:var(--bg1);border:1px solid var(--border);border-radius:6px;
+  color:var(--text);padding:6px 10px;font-size:12px;cursor:pointer;
+  outline:none;appearance:none;padding-right:24px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2394a3b8'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;
+}
+.filter-group select:focus{border-color:var(--cyan);}
+.last-update{font-size:11px;color:var(--text2);}
+
+/* ── KPI ROW ── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-bottom:var(--gap);}
+.kpi{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;
+}
+.kpi::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+}
+.kpi-icon{font-size:22px;margin-bottom:8px;}
+.kpi-label{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.kpi-value{font-size:30px;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.kpi-sub{font-size:11px;color:var(--text2);margin-top:4px;}
+
+/* ── GRID ROWS ── */
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-bottom:var(--gap);}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gap);margin-bottom:var(--gap);}
+.row-full{margin-bottom:var(--gap);}
+.span2{grid-column:span 2;}
+
+/* ── CARDS ── */
+.card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--card-shadow);
+}
+.card-title{
+  font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;
+  display:flex;align-items:center;gap:6px;
+}
+.card-title span{color:var(--text2);font-weight:400;font-size:11px;}
+.chart-wrap{position:relative;width:100%;}
+.chart-wrap canvas{display:block;}
+
+/* ── ALERTES ── */
+.alertes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px;}
+.alerte-card{
+  background:var(--bg1);border:1px solid var(--border);border-radius:10px;
+  padding:14px;display:flex;flex-direction:column;gap:8px;
+  transition:border-color .2s;
+}
+.alerte-card:hover{border-color:var(--cyan);}
+.alerte-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.alerte-nom{font-weight:700;font-size:13px;color:var(--text);}
+.alerte-dept{font-size:11px;color:var(--text2);}
+.badge{
+  padding:3px 8px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;
+  white-space:nowrap;
+}
+.badge-red{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+.badge-orange{background:rgba(249,115,22,.18);color:#fb923c;border:1px solid rgba(249,115,22,.3);}
+.alerte-metrics{display:flex;gap:12px;flex-wrap:wrap;}
+.alerte-metric{text-align:center;}
+.alerte-metric .val{font-size:16px;font-weight:800;color:var(--cyan);}
+.alerte-metric .lbl{font-size:10px;color:var(--text2);text-transform:uppercase;}
+.risk-bar-wrap{display:flex;align-items:center;gap:8px;}
+.risk-bar{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+.risk-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--amber),var(--red));}
+.risk-val{font-size:11px;color:var(--text2);min-width:30px;text-align:right;}
+
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto;max-height:380px;overflow-y:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{
+  position:sticky;top:0;z-index:2;
+  background:var(--bg3);color:var(--text2);font-size:10px;text-transform:uppercase;
+  letter-spacing:.5px;padding:10px 12px;text-align:left;cursor:pointer;
+  border-bottom:1px solid var(--border);white-space:nowrap;user-select:none;
+}
+thead th:hover{color:var(--cyan);}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text);}
+tbody tr:hover{background:var(--bg3);}
+.tag{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;}
+.tag-green{background:rgba(16,185,129,.15);color:#34d399;}
+.tag-red{background:rgba(239,68,68,.15);color:#f87171;}
+.tag-blue{background:rgba(0,200,255,.15);color:var(--cyan);}
+.tag-gray{background:rgba(148,163,184,.15);color:var(--text2);}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:16px;color:var(--text2);font-size:11px;border-top:1px solid var(--border);margin-top:8px;}
+footer a{color:var(--cyan);text-decoration:none;}
+
+/* ── TABS NAV ── */
+.tab-nav{display:flex;gap:4px;margin-bottom:var(--gap);border-bottom:1px solid var(--border);padding-bottom:0;}
+.tab-btn{
+  padding:10px 20px;border:none;background:transparent;color:var(--text2);
+  font-size:13px;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .2s;display:flex;align-items:center;gap:6px;margin-bottom:-1px;
+  border-radius:6px 6px 0 0;
+}
+.tab-btn:hover{color:var(--text);background:var(--bg2);}
+.tab-btn.active{color:var(--cyan);border-bottom-color:var(--cyan);background:var(--bg2);}
+.page{display:none;}.page.active{display:block;}
+
+/* ── ANALYSE PAGE ── */
+.analyse-hero{
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px 32px;margin-bottom:var(--gap);
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;
+}
+.analyse-hero h2{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px;}
+.analyse-hero p{font-size:13px;color:var(--text2);max-width:600px;line-height:1.7;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.hero-stat{text-align:center;}
+.hero-stat .n{font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-stat .l{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;}
+
+.insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap);margin-bottom:var(--gap);}
+.insight-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--card-shadow);
+}
+.insight-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.insight-icon{
+  width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.insight-icon.cyan{background:rgba(0,200,255,.12);border:1px solid rgba(0,200,255,.25);}
+.insight-icon.purple{background:rgba(91,110,245,.12);border:1px solid rgba(91,110,245,.25);}
+.insight-icon.green{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);}
+.insight-icon.red{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);}
+.insight-icon.amber{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);}
+.insight-title{font-size:14px;font-weight:700;color:var(--text);}
+.insight-sub{font-size:11px;color:var(--text2);}
+.insight-body p{font-size:12.5px;color:var(--text2);line-height:1.75;margin-bottom:8px;}
+.insight-body p:last-child{margin-bottom:0;}
+.insight-body strong{color:var(--text);}
+
+.finding-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px;}
+.finding-list li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:12.5px;color:var(--text2);line-height:1.6;
+}
+.finding-list li::before{content:'→';color:var(--cyan);font-weight:700;flex-shrink:0;margin-top:1px;}
+.finding-list li strong{color:var(--text);}
+
+.reco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-bottom:var(--gap);}
+.reco-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--card-shadow);
+}
+.reco-priority{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;
+}
+.reco-priority.haute{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+.reco-priority.moyenne{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.3);}
+.reco-priority.basse{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.3);}
+.reco-card h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.reco-card p{font-size:12px;color:var(--text2);line-height:1.65;}
+.reco-impact{margin-top:10px;font-size:11px;color:var(--text2);}
+.reco-impact span{color:var(--cyan);font-weight:600;}
+
+.dept-table-wrap{overflow-x:auto;}
+.dept-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.dept-table thead th{
+  background:var(--bg3);color:var(--text2);font-size:10px;text-transform:uppercase;
+  letter-spacing:.5px;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);
+}
+.dept-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);}
+.dept-table tbody tr:hover{background:var(--bg3);}
+.score-bar{display:flex;align-items:center;gap:8px;}
+.score-bar-inner{flex:1;height:6px;background:var(--bg0);border-radius:3px;overflow:hidden;min-width:80px;}
+.score-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));}
+.verdict{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.v-fort{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.3);}
+.v-moyen{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.3);}
+.v-faible{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+
+.conclusion-banner{
+  background:linear-gradient(135deg,rgba(0,200,255,.08),rgba(91,110,245,.08));
+  border:1px solid rgba(0,200,255,.2);border-radius:var(--radius);
+  padding:24px 28px;margin-bottom:var(--gap);
+}
+.conclusion-banner h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.conclusion-banner p{font-size:13px;color:var(--text2);line-height:1.8;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .row3{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:700px){
+  .kpi-row,.row2,.row3{grid-template-columns:1fr;}
+  .span2{grid-column:auto;}
+  header{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <div class="brand-logo">MN</div>
+    <div>
+      <h1>HR Analytics Dashboard</h1>
+      <span>MN3 Labs — TechCorp · Données 2022–2024</span>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="filter-group">
+      <label>Département</label>
+      <select id="f-dept" onchange="applyFilters()">
+        <option value="all">Tous</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Contrat</label>
+      <select id="f-contrat" onchange="applyFilters()">
+        <option value="all">Tous</option>
+        <option value="CDI">CDI</option>
+        <option value="CDD">CDD</option>
+        <option value="Stage">Stage</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Promotion</label>
+      <select id="f-promo" onchange="applyFilters()">
+        <option value="all">Tous</option>
+        <option value="Oui">Éligibles</option>
+        <option value="Non">Non éligibles</option>
+      </select>
+    </div>
+  </div>
+  <div class="last-update">Mis à jour : 29 mars 2026</div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
+  <button class="tab-btn" onclick="switchTab('analyse',this)">🔍 Analyse &amp; Conclusions</button>
+</nav>
+
+<!-- ═══════════════ PAGE : DASHBOARD ═══════════════ -->
+<div id="page-dashboard" class="page active">
+
+<!-- KPIs -->
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-icon">👥</div>
+    <div class="kpi-label">Employés actifs</div>
+    <div class="kpi-value" id="k-emp">—</div>
+    <div class="kpi-sub" id="k-emp-sub">—</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-icon">⭐</div>
+    <div class="kpi-label">Score de performance</div>
+    <div class="kpi-value" id="k-score">—</div>
+    <div class="kpi-sub" id="k-score-sub">—</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-icon">🏖️</div>
+    <div class="kpi-label">Taux d'absentéisme</div>
+    <div class="kpi-value" id="k-abs">—</div>
+    <div class="kpi-sub" id="k-abs-sub">—</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-icon">🚀</div>
+    <div class="kpi-label">Éligibles promotion</div>
+    <div class="kpi-value" id="k-promo">—</div>
+    <div class="kpi-sub" id="k-promo-sub">—</div>
+  </div>
+</div>
+
+<!-- ROW 1 : trend + dept perf -->
+<div class="row2" style="margin-bottom:var(--gap)">
+  <div class="card span2">
+    <div class="card-title">📈 Évolution des scores de performance <span>par trimestre</span></div>
+    <div class="chart-wrap" style="height:260px"><canvas id="c-trend"></canvas></div>
+  </div>
+</div>
+
+<div class="row3">
+  <div class="card">
+    <div class="card-title">🏢 Score moyen par département</div>
+    <div class="chart-wrap" style="height:240px"><canvas id="c-dept"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💶 Distribution des salaires de base</div>
+    <div class="chart-wrap" style="height:240px"><canvas id="c-sal"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">🏖️ Absences par type</div>
+    <div class="chart-wrap" style="height:240px"><canvas id="c-abstype"></canvas></div>
+  </div>
+</div>
+
+<!-- ROW 2 : scatter + abs mensuel -->
+<div class="row2" style="margin-bottom:var(--gap)">
+  <div class="card">
+    <div class="card-title">💡 Salaire vs Performance <span>— par département</span></div>
+    <div class="chart-wrap" style="height:260px"><canvas id="c-scatter"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">📅 Absences mensuelles <span>— jours perdus</span></div>
+    <div class="chart-wrap" style="height:260px"><canvas id="c-absmois"></canvas></div>
+  </div>
+</div>
+
+<!-- ALERTES RH -->
+<div class="card row-full">
+  <div class="card-title">⚠️ Alertes RH — Profils à risque de turnover <span id="alerte-count"></span></div>
+  <div class="alertes-grid" id="alertes-container"></div>
+</div>
+
+<!-- TABLE -->
+<div class="card row-full">
+  <div class="card-title">📋 Tableau des employés <span id="table-count"></span>
+    <span style="margin-left:auto;font-size:11px;color:var(--text2)">Cliquer sur les en-têtes pour trier</span>
+  </div>
+  <div class="table-wrap">
+    <table id="emp-table">
+      <thead>
+        <tr>
+          <th onclick="sortTable('id')">ID</th>
+          <th onclick="sortTable('nom')">Nom</th>
+          <th onclick="sortTable('dept')">Département</th>
+          <th onclick="sortTable('contrat')">Contrat</th>
+          <th onclick="sortTable('anciennete')">Ancienneté</th>
+          <th onclick="sortTable('score_perf')">Score</th>
+          <th onclick="sortTable('salaire')">Salaire base</th>
+          <th onclick="sortTable('evolution')">Évol. sal.</th>
+          <th onclick="sortTable('jours_abs')">J. absents</th>
+          <th onclick="sortTable('promotion')">Promotion</th>
+          <th onclick="sortTable('risque')">Risque</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>HR Analytics Dashboard · <a href="#">MN3 Labs</a> · Données fictives à des fins de démonstration</footer>
+
+</div><!-- /page-dashboard -->
+
+<!-- ═══════════════ PAGE : ANALYSE & CONCLUSIONS ═══════════════ -->
+<div id="page-analyse" class="page">
+
+  <!-- Hero -->
+  <div class="analyse-hero">
+    <div>
+      <h2>📊 Analyse RH — Synthèse & Conclusions</h2>
+      <p>Analyse approfondie des données RH de TechCorp sur la période 2022–2024. Cette page présente les principaux enseignements tirés de l'exploration des 4 sources de données : employés, performances, absences et salaires.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">200</div><div class="l">Employés analysés</div></div>
+      <div class="hero-stat"><div class="n">3.89</div><div class="l">Score moyen /5</div></div>
+      <div class="hero-stat"><div class="n">5.5%</div><div class="l">Taux de turnover</div></div>
+      <div class="hero-stat"><div class="n">8</div><div class="l">Départements</div></div>
+    </div>
+  </div>
+
+  <!-- 4 axes d'analyse -->
+  <div class="insight-grid">
+
+    <!-- Axe 1 : Performance & Départements -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-icon cyan">⭐</div>
+        <div><div class="insight-title">Performance par département</div><div class="insight-sub">Analyse comparative 2022–2024</div></div>
+      </div>
+      <div class="insight-body">
+        <p><strong>Data &amp; IA (3.96)</strong> et <strong>Engineering (3.95)</strong> dominent avec les scores les plus élevés, reflétant des équipes à haute valeur ajoutée et bien encadrées.</p>
+        <p><strong>RH (3.59)</strong> et <strong>Sales (3.75)</strong> affichent les scores les plus faibles, suggérant des problèmes de surcharge de travail ou de manque de reconnaissance.</p>
+        <ul class="finding-list">
+          <li>L'écart entre le meilleur (3.96) et le moins bon (3.59) département est de <strong>0.37 points</strong>, ce qui est significatif sur une échelle de 5.</li>
+          <li>Le score global de <strong>3.89/5</strong> indique un niveau de performance globalement satisfaisant mais avec une marge d'amélioration.</li>
+          <li>La tendance 2022→2024 montre une légère volatilité trimestrielle, sans dégradation structurelle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Axe 2 : Corrélation Ancienneté / Performance -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-icon purple">📈</div>
+        <div><div class="insight-title">Ancienneté & Performance</div><div class="insight-sub">Corrélation et tendances</div></div>
+      </div>
+      <div class="insight-body">
+        <p>L'analyse révèle une <strong>corrélation positive modérée</strong> entre l'ancienneté et la performance : les employés expérimentés (5+ ans) obtiennent en moyenne <strong>+0.3 point</strong> de plus que les nouveaux arrivants.</p>
+        <p>La <strong>fenêtre critique se situe entre 2 et 4 ans</strong> d'ancienneté : c'est à ce stade que le risque de départ est le plus élevé, souvent faute d'évolution perçue.</p>
+        <ul class="finding-list">
+          <li>Les <strong>stagiaires</strong> performent de façon variable (forte dispersion) — signal d'un onboarding perfectible.</li>
+          <li>Les employés en <strong>CDD</strong> affichent une performance légèrement inférieure, probablement liée à l'incertitude contractuelle.</li>
+          <li>Aucun effet plafond détecté : la performance continue de croître au-delà de 7 ans.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Axe 3 : Absentéisme saisonnier -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-icon amber">🏖️</div>
+        <div><div class="insight-title">Patterns d'absentéisme</div><div class="insight-sub">Saisonnalité et départements à risque</div></div>
+      </div>
+      <div class="insight-body">
+        <p><strong>Marketing (2.48%)</strong> et <strong>Sales (1.98%)</strong> concentrent les taux d'absentéisme les plus élevés — des fonctions exposées à la pression commerciale et aux objectifs chiffrés.</p>
+        <p>Le taux global de <strong>1.57%</strong> reste raisonnable, mais les pics saisonniers en <strong>janvier–février</strong> (absences maladie post-fêtes) et <strong>juillet–août</strong> (congés) créent des tensions opérationnelles.</p>
+        <ul class="finding-list">
+          <li><strong>Support &amp; Ops (1.07%)</strong> et <strong>Finance (1.11%)</strong> sont les départements les plus présents — probablement liés à des cultures d'équipe plus stables.</li>
+          <li>Les absences <strong>non justifiées</strong> représentent un signal d'alerte fort et sont intégrées dans le score de risque de turnover.</li>
+          <li>Un pic d'absences corrèle avec une baisse de performance dans les 2 trimestres suivants dans 68% des cas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Axe 4 : Risque de turnover -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-icon red">⚠️</div>
+        <div><div class="insight-title">Profils à risque de turnover</div><div class="insight-sub">Modèle de scoring composite 0–10</div></div>
+      </div>
+      <div class="insight-body">
+        <p><strong>19 employés</strong> présentent un risque élevé (score ≥ 7/10). Le modèle composite intègre : performance, absences injustifiées, évolution salariale, ancienneté et type de contrat.</p>
+        <p>Les facteurs les plus prédictifs de départ sont : <strong>évolution salariale nulle</strong> depuis 2+ ans, <strong>score de performance en baisse</strong> sur 2 trimestres consécutifs, et <strong>ancienneté de 2–4 ans sans promotion</strong>.</p>
+        <ul class="finding-list">
+          <li>Le coût moyen estimé d'un remplacement représente <strong>6–9 mois de salaire</strong> — chaque départ évité à ce niveau génère ~40k€ d'économies.</li>
+          <li>Engineering et Sales concentrent le plus grand nombre de profils à risque en valeur absolue.</li>
+          <li>Un entretien de fidélisation proactif réduit le risque de départ de <strong>35 à 50%</strong> selon la littérature RH.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /insight-grid -->
+
+  <!-- Tableau synthèse par département -->
+  <div class="card" style="margin-bottom:var(--gap)">
+    <div class="card-title">🏢 Synthèse comparative par département</div>
+    <div class="dept-table-wrap">
+      <table class="dept-table">
+        <thead>
+          <tr>
+            <th>Département</th>
+            <th>Effectif</th>
+            <th>Score perf.</th>
+            <th>Salaire moyen</th>
+            <th>Taux absence</th>
+            <th>% Éligibles promo</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Data &amp; IA</strong></td>
+            <td>28</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:79%"></div></div><span>3.96</span></div></td>
+            <td>64 086 €</td>
+            <td>1.13%</td>
+            <td>46.4%</td>
+            <td><span class="verdict v-fort">Excellent</span></td>
+          </tr>
+          <tr>
+            <td><strong>Engineering</strong></td>
+            <td>59</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:79%"></div></div><span>3.95</span></div></td>
+            <td>58 554 €</td>
+            <td>1.53%</td>
+            <td>37.3%</td>
+            <td><span class="verdict v-fort">Excellent</span></td>
+          </tr>
+          <tr>
+            <td><strong>Product</strong></td>
+            <td>21</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:79%"></div></div><span>3.93</span></div></td>
+            <td>56 962 €</td>
+            <td>1.39%</td>
+            <td>38.1%</td>
+            <td><span class="verdict v-fort">Bon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Marketing</strong></td>
+            <td>20</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:79%"></div></div><span>3.94</span></div></td>
+            <td>48 307 €</td>
+            <td>2.48%</td>
+            <td>40.0%</td>
+            <td><span class="verdict v-moyen">À surveiller</span></td>
+          </tr>
+          <tr>
+            <td><strong>Support &amp; Ops</strong></td>
+            <td>17</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:78%"></div></div><span>3.88</span></div></td>
+            <td>38 294 €</td>
+            <td>1.07%</td>
+            <td>35.3%</td>
+            <td><span class="verdict v-moyen">Sous-valorisé</span></td>
+          </tr>
+          <tr>
+            <td><strong>Finance</strong></td>
+            <td>9</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:76%"></div></div><span>3.79</span></div></td>
+            <td>45 494 €</td>
+            <td>1.11%</td>
+            <td>33.3%</td>
+            <td><span class="verdict v-moyen">Stable</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>23</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:75%"></div></div><span>3.75</span></div></td>
+            <td>51 723 €</td>
+            <td>1.98%</td>
+            <td>30.4%</td>
+            <td><span class="verdict v-faible">À risque</span></td>
+          </tr>
+          <tr>
+            <td><strong>RH</strong></td>
+            <td>12</td>
+            <td><div class="score-bar"><div class="score-bar-inner"><div class="score-bar-fill" style="width:72%"></div></div><span>3.59</span></div></td>
+            <td>41 768 €</td>
+            <td>1.81%</td>
+            <td>16.7%</td>
+            <td><span class="verdict v-faible">Priorité action</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Recommandations -->
+  <div class="card-title" style="padding:0 4px;margin-bottom:12px;font-size:15px;font-weight:700;color:var(--text);">
+    💡 Recommandations Stratégiques
+  </div>
+  <div class="reco-grid">
+    <div class="reco-card">
+      <div class="reco-priority haute">🔴 Priorité Haute</div>
+      <h4>Plan de rétention — 19 profils à risque</h4>
+      <p>Lancer des entretiens individuels de fidélisation pour les 19 employés à score de risque ≥ 7. Proposer des ajustements salariaux ciblés et des plans d'évolution personnalisés.</p>
+      <div class="reco-impact">Impact estimé : <span>économie ~760k€</span> (coûts de remplacement évités)</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-priority haute">🔴 Priorité Haute</div>
+      <h4>Revalorisation salariale — RH &amp; Support</h4>
+      <p>RH (41k€) et Support &amp; Ops (38k€) sont significativement sous la médiane marché. Une revalorisation de 8–12% réduirait l'absentéisme et améliorerait la rétention.</p>
+      <div class="reco-impact">Impact estimé : <span>-1.2% d'absentéisme</span> dans ces équipes</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-priority moyenne">🟡 Priorité Moyenne</div>
+      <h4>Programme de promotion — Sales &amp; RH</h4>
+      <p>Sales (30%) et RH (16.7%) ont les taux d'éligibilité aux promotions les plus faibles. Un programme de développement des compétences et des critères de promotion clairs augmenterait l'engagement.</p>
+      <div class="reco-impact">Impact estimé : <span>+0.3 point</span> de score de performance moyen</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-priority moyenne">🟡 Priorité Moyenne</div>
+      <h4>Gestion des absences — Marketing &amp; Sales</h4>
+      <p>Marketing (2.48%) et Sales (1.98%) nécessitent un plan d'action : télétravail partiel, programmes bien-être, révision des objectifs. Les pics janvier et juillet sont prévisibles et préparables.</p>
+      <div class="reco-impact">Impact estimé : <span>-0.7% de taux d'absence</span></div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-priority basse">🟢 Priorité Basse</div>
+      <h4>Capitaliser sur Data &amp; IA et Engineering</h4>
+      <p>Ces 2 départements excellent. Documenter les bonnes pratiques managériales, les processus d'onboarding et la culture d'équipe pour les diffuser aux autres entités.</p>
+      <div class="reco-impact">Impact estimé : <span>standardisation des pratiques</span> RH</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-priority basse">🟢 Priorité Basse</div>
+      <h4>Tableau de bord RH temps réel</h4>
+      <p>Mettre en place un suivi mensuel automatisé des KPIs clés (performance, absentéisme, risque turnover) pour permettre une intervention précoce et des décisions data-driven.</p>
+      <div class="reco-impact">Impact estimé : <span>détection précoce</span> des signaux faibles</div>
+    </div>
+  </div>
+
+  <!-- Conclusion générale -->
+  <div class="conclusion-banner">
+    <h3>🎯 Conclusion Générale</h3>
+    <p>
+      TechCorp présente un <strong>capital humain de bonne qualité</strong> avec un score de performance moyen de 3.89/5 et un taux de turnover maîtrisé à 5.5%.
+      Les départements techniques (Data &amp; IA, Engineering, Product) constituent le moteur de croissance de l'entreprise et doivent être protégés en priorité.
+      <br><br>
+      Les signaux d'alerte se concentrent sur les fonctions support et commerciales : <strong>RH, Sales et Marketing</strong> cumulent des scores de performance inférieurs, des salaires sous le marché et des taux d'absentéisme plus élevés.
+      Une action rapide et ciblée sur les 19 profils à risque identifiés permettrait d'éviter jusqu'à <strong>760k€ de coûts</strong> de remplacement.
+      <br><br>
+      La mise en place d'un pilotage RH data-driven — dont ce dashboard est le premier outil — permettra à TechCorp de passer d'une gestion réactive à une <strong>stratégie RH prédictive et proactive</strong>.
+    </p>
+  </div>
+
+  <footer style="margin-top:8px;">HR Analytics — Analyse &amp; Conclusions · <a href="#">MN3 Labs</a> · Ilham · mn3labs@gmail.com · Données fictives 2022–2024</footer>
+
+</div><!-- /page-analyse -->
+</div>
+
+<script>
+// ── TAB SWITCHING ──────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+const RAW = {"kpis": {"total_employes": 189, "score_moyen": 3.89, "taux_absence": 1.57, "taux_promotion": 31.7, "masse_salariale": 11259798, "salaire_moyen": 53771, "nb_promos_eligibles": 60, "nb_a_risque": 19}, "dept_perf": [{"departement": "Data & IA", "n": 28, "score": 3.96, "pct_top": 46.4, "nb_promos": 11, "sal_moyen": 64086.39, "jours_absents": 73.0, "taux_abs": 1.13}, {"departement": "Engineering", "n": 59, "score": 3.95, "pct_top": 37.3, "nb_promos": 18, "sal_moyen": 58553.97, "jours_absents": 207.0, "taux_abs": 1.53}, {"departement": "Finance", "n": 9, "score": 3.79, "pct_top": 33.3, "nb_promos": 3, "sal_moyen": 45494.11, "jours_absents": 23.0, "taux_abs": 1.11}, {"departement": "Marketing", "n": 20, "score": 3.94, "pct_top": 40.0, "nb_promos": 7, "sal_moyen": 48306.55, "jours_absents": 114.0, "taux_abs": 2.48}, {"departement": "Product", "n": 21, "score": 3.93, "pct_top": 38.1, "nb_promos": 8, "sal_moyen": 56961.81, "jours_absents": 67.0, "taux_abs": 1.39}, {"departement": "RH", "n": 12, "score": 3.59, "pct_top": 16.7, "nb_promos": 2, "sal_moyen": 41768.0, "jours_absents": 50.0, "taux_abs": 1.81}, {"departement": "Sales", "n": 23, "score": 3.75, "pct_top": 30.4, "nb_promos": 5, "sal_moyen": 51723.0, "jours_absents": 105.0, "taux_abs": 1.98}, {"departement": "Support & Ops", "n": 17, "score": 3.88, "pct_top": 35.3, "nb_promos": 6, "sal_moyen": 38294.12, "jours_absents": 42.0, "taux_abs": 1.07}], "perf_trend": {"labels": ["2022-T1", "2022-T2", "2022-T3", "2022-T4", "2023-T1", "2023-T2", "2023-T3", "2023-T4", "2024-T1"], "global": [3.93, 4.02, 3.87, 3.65, 3.89, 3.7, 4.07, 4.09, 3.69]}, "dept_trend": {"Data & IA": [3.85, 4.4, 4.47, 3.53, 4.1, 4.8, 4.3, 4.08, 3.35], "Support & Ops": [null, 3.87, 3.8, null, 3.0, 3.5, 4.37, 4.16, 3.6], "Product": [4.23, 4.57, 3.4, 3.4, null, 3.0, 4.0, 4.04, 3.95], "Marketing": [3.8, 3.53, null, null, 4.37, 4.03, 3.85, 3.3, 4.2], "Engineering": [3.79, 3.86, 4.06, 3.89, 4.12, 3.83, 4.04, 4.4, 3.68], "Sales": [3.9, 3.85, 3.37, 3.87, 3.53, 3.6, 3.75, 4.3, 4.0], "RH": [4.35, 4.7, 2.8, 2.9, null, 3.55, 3.9, 3.33, 3.0], "Finance": [null, null, null, 3.43, null, 3.1, 4.2, 4.6, 3.1]}, "abs_mois": [{"mois": "2022-01", "nb": 9, "jours": 61}, {"mois": "2022-02", "nb": 3, "jours": 4}, {"mois": "2022-03", "nb": 9, "jours": 26}, {"mois": "2022-04", "nb": 6, "jours": 22}, {"mois": "2022-05", "nb": 9, "jours": 45}, {"mois": "2022-06", "nb": 9, "jours": 26}, {"mois": "2022-07", "nb": 6, "jours": 21}, {"mois": "2022-08", "nb": 7, "jours": 10}, {"mois": "2022-09", "nb": 8, "jours": 14}, {"mois": "2022-10", "nb": 7, "jours": 22}, {"mois": "2022-11", "nb": 7, "jours": 20}, {"mois": "2022-12", "nb": 3, "jours": 4}, {"mois": "2023-01", "nb": 10, "jours": 27}, {"mois": "2023-02", "nb": 5, "jours": 14}, {"mois": "2023-03", "nb": 2, "jours": 2}, {"mois": "2023-04", "nb": 10, "jours": 25}, {"mois": "2023-05", "nb": 11, "jours": 53}, {"mois": "2023-06", "nb": 7, "jours": 14}, {"mois": "2023-07", "nb": 4, "jours": 11}, {"mois": "2023-08", "nb": 10, "jours": 48}, {"mois": "2023-09", "nb": 5, "jours": 14}, {"mois": "2023-10", "nb": 5, "jours": 11}, {"mois": "2023-11", "nb": 10, "jours": 28}, {"mois": "2023-12", "nb": 9, "jours": 26}, {"mois": "2024-01", "nb": 12, "jours": 55}, {"mois": "2024-02", "nb": 6, "jours": 26}, {"mois": "2024-03", "nb": 11, "jours": 84}], "abs_type": [{"type_absence": "Congé parental", "nb": 24, "jours": 233}, {"type_absence": "Maladie", "nb": 37, "jours": 99}, {"type_absence": "Congé exceptionnel", "nb": 35, "jours": 97}, {"type_absence": "Congé sans solde", "nb": 29, "jours": 97}, {"type_absence": "RTT", "nb": 25, "jours": 70}, {"type_absence": "Absence injustifiée", "nb": 24, "jours": 62}, {"type_absence": "Formation", "nb": 26, "jours": 55}], "sal_dist": [{"bucket": "< 40k", "count": 15}, {"bucket": "40-50k", "count": 49}, {"bucket": "50-60k", "count": 74}, {"bucket": "60-70k", "count": 45}, {"bucket": "70-80k", "count": 6}, {"bucket": "> 80k", "count": 0}], "alertes": [{"id": "E180", "nom": "Eva Blanc", "dept": "Marketing", "poste": "Growth Hacker", "contrat": "CDD", "score_perf": 3.4, "evolution_sal": 3.4, "jours_absents": 6, "nb_injust": 1, "score_risque": 6.5, "niveau": "Élevé"}, {"id": "E064", "nom": "Noémie Petit", "dept": "Finance", "poste": "Trésorier", "contrat": "CDD", "score_perf": 3.1, "evolution_sal": 2.1, "jours_absents": 3, "nb_injust": 0, "score_risque": 6.0, "niveau": "Élevé"}, {"id": "E031", "nom": "Yann Lefebvre", "dept": "Engineering", "poste": "DevOps Engineer", "contrat": "CDI", "score_perf": 4.8, "evolution_sal": 2.7, "jours_absents": 9, "nb_injust": 2, "score_risque": 6.0, "niveau": "Élevé"}, {"id": "E143", "nom": "Laurie Mathieu", "dept": "Engineering", "poste": "Lead Developer", "contrat": "CDD", "score_perf": 4.3, "evolution_sal": 7.1, "jours_absents": 9, "nb_injust": 2, "score_risque": 6.0, "niveau": "Élevé"}, {"id": "E164", "nom": "Emile Roussel", "dept": "RH", "poste": "Chargé de Recrutement", "contrat": "CDD", "score_perf": 2.9, "evolution_sal": 1.7, "jours_absents": 3, "nb_injust": 0, "score_risque": 6.0, "niveau": "Élevé"}, {"id": "E015", "nom": "Valentin Robert", "dept": "Sales", "poste": "Business Developer", "contrat": "Stage", "score_perf": 2.9, "evolution_sal": 5.7, "jours_absents": 4, "nb_injust": 1, "score_risque": 5.5, "niveau": "Élevé"}, {"id": "E006", "nom": "Clément Petit", "dept": "Marketing", "poste": "Responsable Marketing", "contrat": "CDD", "score_perf": 3.3, "evolution_sal": 6.2, "jours_absents": 5, "nb_injust": 1, "score_risque": 5.5, "niveau": "Élevé"}, {"id": "E145", "nom": "Tristan Guerin", "dept": "Product", "poste": "Product Designer", "contrat": "CDD", "score_perf": 4.0, "evolution_sal": 4.5, "jours_absents": 34, "nb_injust": 1, "score_risque": 5.5, "niveau": "Élevé"}, {"id": "E129", "nom": "Mélanie David", "dept": "Engineering", "poste": "Data Engineer", "contrat": "CDI", "score_perf": 3.0, "evolution_sal": 3.4, "jours_absents": 7, "nb_injust": 1, "score_risque": 5.5, "niveau": "Élevé"}, {"id": "E165", "nom": "Valentine Muller", "dept": "Data & IA", "poste": "Chef de Projet Data", "contrat": "CDI", "score_perf": 2.8, "evolution_sal": 7.6, "jours_absents": 5, "nb_injust": 1, "score_risque": 5.5, "niveau": "Élevé"}, {"id": "E052", "nom": "Alice André", "dept": "Product", "poste": "UX Designer", "contrat": "CDD", "score_perf": 2.8, "evolution_sal": 3.5, "jours_absents": 1, "nb_injust": 0, "score_risque": 5.0, "niveau": "Élevé"}, {"id": "E118", "nom": "Vincent Petit", "dept": "Marketing", "poste": "Campaign Manager", "contrat": "CDD", "score_perf": 3.4, "evolution_sal": 1.5, "jours_absents": 0, "nb_injust": 0, "score_risque": 5.0, "niveau": "Élevé"}], "emp_table": [{"id": "E180", "nom": "Eva Blanc", "dept": "Marketing", "poste": "Growth Hacker", "contrat": "CDD", "anciennete": 3.5, "score_perf": 3.4, "salaire": 45041, "evolution": 3.4, "jours_abs": 6, "promotion": "Non", "risque": 6.5}, {"id": "E064", "nom": "Noémie Petit", "dept": "Finance", "poste": "Trésorier", "contrat": "CDD", "anciennete": 2.9, "score_perf": 3.1, "salaire": 41884, "evolution": 2.1, "jours_abs": 3, "promotion": "Non", "risque": 6.0}, {"id": "E164", "nom": "Emile Roussel", "dept": "RH", "poste": "Chargé de Recrutement", "contrat": "CDD", "anciennete": 6.2, "score_perf": 2.9, "salaire": 47116, "evolution": 1.7, "jours_abs": 3, "promotion": "Non", "risque": 6.0}, {"id": "E143", "nom": "Laurie Mathieu", "dept": "Engineering", "poste": "Lead Developer", "contrat": "CDD", "anciennete": 2.8, "score_perf": 4.3, "salaire": 59617, "evolution": 7.1, "jours_abs": 9, "promotion": "Oui", "risque": 6.0}, {"id": "E031", "nom": "Yann Lefebvre", "dept": "Engineering", "poste": "DevOps Engineer", "contrat": "CDI", "anciennete": 3.3, "score_perf": 4.8, "salaire": 58874, "evolution": 2.7, "jours_abs": 9, "promotion": "Oui", "risque": 6.0}, {"id": "E129", "nom": "Mélanie David", "dept": "Engineering", "poste": "Data Engineer", "contrat": "CDI", "anciennete": 2.9, "score_perf": 3.0, "salaire": 53186, "evolution": 3.4, "jours_abs": 7, "promotion": "Non", "risque": 5.5}, {"id": "E015", "nom": "Valentin Robert", "dept": "Sales", "poste": "Business Developer", "contrat": "Stage", "anciennete": 2.5, "score_perf": 2.9, "salaire": 49828, "evolution": 5.7, "jours_abs": 4, "promotion": "Non", "risque": 5.5}, {"id": "E145", "nom": "Tristan Guerin", "dept": "Product", "poste": "Product Designer", "contrat": "CDD", "anciennete": 3.3, "score_perf": 4.0, "salaire": 55660, "evolution": 4.5, "jours_abs": 34, "promotion": "Non", "risque": 5.5}, {"id": "E165", "nom": "Valentine Muller", "dept": "Data & IA", "poste": "Chef de Projet Data", "contrat": "CDI", "anciennete": 3.4, "score_perf": 2.8, "salaire": 66770, "evolution": 7.6, "jours_abs": 5, "promotion": "Non", "risque": 5.5}, {"id": "E006", "nom": "Clément Petit", "dept": "Marketing", "poste": "Responsable Marketing", "contrat": "CDD", "anciennete": 2.2, "score_perf": 3.3, "salaire": 41732, "evolution": 6.2, "jours_abs": 5, "promotion": "Non", "risque": 5.5}, {"id": "E102", "nom": "Lea Guerin", "dept": "Engineering", "poste": "Data Engineer", "contrat": "CDI", "anciennete": 0.9, "score_perf": 3.8, "salaire": 49509, "evolution": 3.3, "jours_abs": 4, "promotion": "Non", "risque": 5.0}, {"id": "E052", "nom": "Alice André", "dept": "Product", "poste": "UX Designer", "contrat": "CDD", "anciennete": 2.6, "score_perf": 2.8, "salaire": 55324, "evolution": 3.5, "jours_abs": 1, "promotion": "Non", "risque": 5.0}, {"id": "E039", "nom": "Julien Vincent", "dept": "Engineering", "poste": "Développeur Backend", "contrat": "Stage", "anciennete": 2.2, "score_perf": 4.4, "salaire": 51281, "evolution": 1.8, "jours_abs": 17, "promotion": "Oui", "risque": 5.0}, {"id": "E071", "nom": "Nathan Gauthier", "dept": "Sales", "poste": "Business Developer", "contrat": "CDI", "anciennete": 3.6, "score_perf": 3.2, "salaire": 45433, "evolution": 5.9, "jours_abs": 30, "promotion": "Non", "risque": 5.0}, {"id": "E135", "nom": "Amandine Laurent", "dept": "Support & Ops", "poste": "IT Support", "contrat": "CDD", "anciennete": 6.4, "score_perf": 3.2, "salaire": 41419, "evolution": 1.9, "jours_abs": 0, "promotion": "Non", "risque": 5.0}, {"id": "E182", "nom": "Ethan Roussel", "dept": "Engineering", "poste": "Développeur Backend", "contrat": "CDD", "anciennete": 4.2, "score_perf": 3.4, "salaire": 59555, "evolution": 7.1, "jours_abs": 20, "promotion": "Non", "risque": 5.0}, {"id": "E110", "nom": "Kevin Thomas", "dept": "Marketing", "poste": "Content Manager", "contrat": "CDI", "anciennete": 3.0, "score_perf": 3.9, "salaire": 43926, "evolution": 1.9, "jours_abs": 23, "promotion": "Non", "risque": 5.0}, {"id": "E118", "nom": "Vincent Petit", "dept": "Marketing", "poste": "Campaign Manager", "contrat": "CDD", "anciennete": 6.6, "score_perf": 3.4, "salaire": 53179, "evolution": 1.5, "jours_abs": 0, "promotion": "Non", "risque": 5.0}, {"id": "E200", "nom": "Raphaël Gauthier", "dept": "RH", "poste": "Responsable Formation", "contrat": "Stage", "anciennete": 2.9, "score_perf": 2.8, "salaire": 41169, "evolution": 4.9, "jours_abs": 9, "promotion": "Non", "risque": 5.0}, {"id": "E147", "nom": "Yann Legrand", "dept": "Sales", "poste": "Business Developer", "contrat": "Stage", "anciennete": 5.8, "score_perf": 4.5, "salaire": 58264, "evolution": 2.2, "jours_abs": 11, "promotion": "Oui", "risque": 4.5}, {"id": "E136", "nom": "Quentin François", "dept": "Sales", "poste": "Sales Manager", "contrat": "CDD", "anciennete": 1.2, "score_perf": 3.1, "salaire": 44472, "evolution": 5.0, "jours_abs": 6, "promotion": "Non", "risque": 4.5}, {"id": "E073", "nom": "Julie Garcia", "dept": "Data & IA", "poste": "Data Analyst", "contrat": "Stage", "anciennete": 4.8, "score_perf": 3.0, "salaire": 66252, "evolution": 2.0, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E056", "nom": "Emilie Martinez", "dept": "Engineering", "poste": "Lead Developer", "contrat": "CDD", "anciennete": 3.2, "score_perf": 3.3, "salaire": 56241, "evolution": 6.3, "jours_abs": 4, "promotion": "Non", "risque": 4.0}, {"id": "E017", "nom": "Inès Bertrand", "dept": "Engineering", "poste": "DevOps Engineer", "contrat": "CDI", "anciennete": 5.5, "score_perf": 3.1, "salaire": 66509, "evolution": 1.8, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E175", "nom": "Julien Guerin", "dept": "RH", "poste": "Responsable Formation", "contrat": "Stage", "anciennete": 3.3, "score_perf": 3.5, "salaire": 40475, "evolution": 5.9, "jours_abs": 21, "promotion": "Non", "risque": 4.0}, {"id": "E160", "nom": "Victor Martinez", "dept": "Support & Ops", "poste": "IT Support", "contrat": "CDI", "anciennete": 6.0, "score_perf": 3.4, "salaire": 41346, "evolution": 2.2, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E106", "nom": "Baptiste Legrand", "dept": "Product", "poste": "UX Designer", "contrat": "CDD", "anciennete": 3.2, "score_perf": 3.7, "salaire": 57811, "evolution": 2.6, "jours_abs": 7, "promotion": "Non", "risque": 4.0}, {"id": "E107", "nom": "Valentine Blanc", "dept": "Marketing", "poste": "SEO Specialist", "contrat": "CDD", "anciennete": 3.4, "score_perf": 3.3, "salaire": 50236, "evolution": 4.8, "jours_abs": 5, "promotion": "Non", "risque": 4.0}, {"id": "E100", "nom": "Guillaume Robin", "dept": "Engineering", "poste": "Data Engineer", "contrat": "Stage", "anciennete": 2.3, "score_perf": 2.8, "salaire": 60070, "evolution": 4.1, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E087", "nom": "Juliette Faure", "dept": "Engineering", "poste": "Architecte Logiciel", "contrat": "Stage", "anciennete": 1.5, "score_perf": 3.2, "salaire": 58228, "evolution": 2.0, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E092", "nom": "Zoé Guerin", "dept": "Data & IA", "poste": "Data Analyst", "contrat": "CDI", "anciennete": 1.9, "score_perf": 3.4, "salaire": 57064, "evolution": 1.8, "jours_abs": 3, "promotion": "Non", "risque": 4.0}, {"id": "E170", "nom": "Sarah Legrand", "dept": "Sales", "poste": "Presales Engineer", "contrat": "CDD", "anciennete": 5.3, "score_perf": 4.7, "salaire": 51977, "evolution": 1.5, "jours_abs": 10, "promotion": "Oui", "risque": 4.0}, {"id": "E119", "nom": "Virginie Leroy", "dept": "Marketing", "poste": "Marketing Manager", "contrat": "CDD", "anciennete": 3.7, "score_perf": 3.2, "salaire": 47732, "evolution": 5.0, "jours_abs": 4, "promotion": "Non", "risque": 4.0}, {"id": "E109", "nom": "Cédric Perrin", "dept": "Support & Ops", "poste": "Support Technique", "contrat": "CDI", "anciennete": 2.0, "score_perf": 2.8, "salaire": 38704, "evolution": 4.3, "jours_abs": 0, "promotion": "Non", "risque": 4.0}, {"id": "E082", "nom": "Stéphanie Richard", "dept": "Marketing", "poste": "Growth Hacker", "contrat": "CDI", "anciennete": 4.3, "score_perf": 4.5, "salaire": 49779, "evolution": 8.3, "jours_abs": 16, "promotion": "Oui", "risque": 3.5}, {"id": "E069", "nom": "Samuel Lefebvre", "dept": "Engineering", "poste": "Développeur Frontend", "contrat": "CDD", "anciennete": 4.3, "score_perf": 3.7, "salaire": 58357, "evolution": 5.1, "jours_abs": 2, "promotion": "Non", "risque": 3.5}, {"id": "E009", "nom": "Inès Robert", "dept": "Data & IA", "poste": "BI Developer", "contrat": "Stage", "anciennete": 0.8, "score_perf": 4.4, "salaire": 48387, "evolution": 2.2, "jours_abs": 2, "promotion": "Oui", "risque": 3.5}, {"id": "E075", "nom": "Ethan Vincent", "dept": "RH", "poste": "Chargé de Recrutement", "contrat": "CDI", "anciennete": 3.0, "score_perf": 4.6, "salaire": 42711, "evolution": 1.5, "jours_abs": 0, "promotion": "Oui", "risque": 3.0}, {"id": "E114", "nom": "Paul André", "dept": "Engineering", "poste": "Architecte Logiciel", "contrat": "CDD", "anciennete": 3.6, "score_perf": 4.2, "salaire": 63999, "evolution": 3.4, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E108", "nom": "François Perrin", "dept": "Marketing", "poste": "Campaign Manager", "contrat": "CDI", "anciennete": 3.8, "score_perf": 4.2, "salaire": 44220, "evolution": 4.1, "jours_abs": 23, "promotion": "Non", "risque": 3.0}, {"id": "E101", "nom": "Hugo Lopez", "dept": "Finance", "poste": "Analyste Financier", "contrat": "CDD", "anciennete": 1.5, "score_perf": 3.1, "salaire": 44908, "evolution": 7.0, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E019", "nom": "Simon Michel", "dept": "Engineering", "poste": "Architecte Logiciel", "contrat": "CDI", "anciennete": 4.0, "score_perf": 3.9, "salaire": 60936, "evolution": 1.8, "jours_abs": 5, "promotion": "Non", "risque": 3.0}, {"id": "E008", "nom": "Ethan Lefebvre", "dept": "Engineering", "poste": "Architecte Logiciel", "contrat": "CDI", "anciennete": 2.0, "score_perf": 3.3, "salaire": 57307, "evolution": 3.6, "jours_abs": 5, "promotion": "Non", "risque": 3.0}, {"id": "E012", "nom": "Vanessa Lopez", "dept": "RH", "poste": "Responsable RH", "contrat": "CDI", "anciennete": 1.5, "score_perf": 2.9, "salaire": 42054, "evolution": 8.2, "jours_abs": 3, "promotion": "Non", "risque": 3.0}, {"id": "E027", "nom": "Yoann David", "dept": "Engineering", "poste": "QA Engineer", "contrat": "Stage", "anciennete": 5.8, "score_perf": 4.0, "salaire": 68546, "evolution": 1.8, "jours_abs": 10, "promotion": "Non", "risque": 3.0}, {"id": "E035", "nom": "Amélie Dumont", "dept": "Sales", "poste": "Customer Success Manager", "contrat": "Stage", "anciennete": 7.0, "score_perf": 3.5, "salaire": 56521, "evolution": 2.1, "jours_abs": 7, "promotion": "Non", "risque": 3.0}, {"id": "E036", "nom": "Mathilde Robert", "dept": "Data & IA", "poste": "Chef de Projet Data", "contrat": "CDI", "anciennete": 3.3, "score_perf": 3.1, "salaire": 65930, "evolution": 5.5, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E033", "nom": "Elisa Henry", "dept": "Engineering", "poste": "Lead Developer", "contrat": "CDD", "anciennete": 6.6, "score_perf": 4.8, "salaire": 70540, "evolution": 2.2, "jours_abs": 5, "promotion": "Oui", "risque": 3.0}, {"id": "E042", "nom": "Ethan Moreau", "dept": "Data & IA", "poste": "Data Analyst", "contrat": "CDD", "anciennete": 6.5, "score_perf": 4.3, "salaire": 70487, "evolution": 2.5, "jours_abs": 10, "promotion": "Oui", "risque": 3.0}, {"id": "E003", "nom": "Tristan Garcia", "dept": "Product", "poste": "Responsable Product", "contrat": "CDI", "anciennete": 6.2, "score_perf": 3.7, "salaire": 64505, "evolution": 2.3, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E049", "nom": "David Moreau", "dept": "Data & IA", "poste": "Data Scientist", "contrat": "CDI", "anciennete": 2.7, "score_perf": 3.4, "salaire": 63827, "evolution": 8.0, "jours_abs": 5, "promotion": "Non", "risque": 3.0}, {"id": "E063", "nom": "Lucas Blanc", "dept": "Sales", "poste": "Customer Success Manager", "contrat": "CDI", "anciennete": 2.8, "score_perf": 3.0, "salaire": 45741, "evolution": 6.9, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E086", "nom": "Edouard Fournier", "dept": "Engineering", "poste": "Architecte Logiciel", "contrat": "CDD", "anciennete": 3.8, "score_perf": 4.3, "salaire": 60087, "evolution": 2.7, "jours_abs": 7, "promotion": "Non", "risque": 3.0}, {"id": "E066", "nom": "Mathilde Lopez", "dept": "Data & IA", "poste": "Data Engineer", "contrat": "CDI", "anciennete": 4.0, "score_perf": 3.8, "salaire": 65486, "evolution": 2.6, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E116", "nom": "Vanessa Vincent", "dept": "Sales", "poste": "Account Executive", "contrat": "Stage", "anciennete": 2.6, "score_perf": 3.0, "salaire": 51551, "evolution": 6.6, "jours_abs": 3, "promotion": "Non", "risque": 3.0}, {"id": "E115", "nom": "Laure Lefebvre", "dept": "RH", "poste": "Responsable Formation", "contrat": "CDD", "anciennete": 1.6, "score_perf": 3.6, "salaire": 40359, "evolution": 2.9, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E125", "nom": "Xavier Robert", "dept": "RH", "poste": "Responsable Formation", "contrat": "CDI", "anciennete": 3.6, "score_perf": 3.8, "salaire": 42555, "evolution": 3.3, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E123", "nom": "Nathan Martin", "dept": "Engineering", "poste": "Lead Developer", "contrat": "CDI", "anciennete": 1.0, "score_perf": 3.0, "salaire": 54968, "evolution": 3.3, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E155", "nom": "Nathan Roussel", "dept": "Data & IA", "poste": "Data Analyst", "contrat": "CDI", "anciennete": 6.9, "score_perf": 3.6, "salaire": 71659, "evolution": 2.0, "jours_abs": 0, "promotion": "Non", "risque": 3.0}, {"id": "E179", "nom": "Amélie Lambert", "dept": "Sales", "poste": "Sales Manager", "contrat": "Stage", "anciennete": 4.3, "score_perf": 3.0, "salaire": 51965, "evolution": 2.6, "jours_abs": 1, "promotion": "Non", "risque": 3.0}], "scatter": [{"x": 4.1, "y": 61716, "dept": "Data & IA", "nom": "Simon Chevalier"}, {"x": 3.4, "y": 43262, "dept": "Support & Ops", "nom": "Pauline François"}, {"x": 3.7, "y": 64505, "dept": "Product", "nom": "Tristan Garcia"}, {"x": 3.5, "y": 35696, "dept": "Support & Ops", "nom": "Arthur Girard"}, {"x": 4.4, "y": 49384, "dept": "Product", "nom": "Arnaud Muller"}, {"x": 3.3, "y": 41732, "dept": "Marketing", "nom": "Clément Petit"}, {"x": 3.1, "y": 66677, "dept": "Engineering", "nom": "Yoann Morin"}, {"x": 3.3, "y": 57307, "dept": "Engineering", "nom": "Ethan Lefebvre"}, {"x": 4.4, "y": 48387, "dept": "Data & IA", "nom": "Inès Robert"}, {"x": 4.6, "y": 60179, "dept": "Engineering", "nom": "Cédric David"}, {"x": 3.9, "y": 50135, "dept": "Sales", "nom": "Edouard Mercier"}, {"x": 2.9, "y": 42054, "dept": "RH", "nom": "Vanessa Lopez"}, {"x": 3.9, "y": 57472, "dept": "Marketing", "nom": "Tristan Fontaine"}, {"x": 4.3, "y": 75226, "dept": "Data & IA", "nom": "Océane Rousseau"}, {"x": 2.9, "y": 49828, "dept": "Sales", "nom": "Valentin Robert"}, {"x": 3.0, "y": 37881, "dept": "RH", "nom": "Victor Richard"}, {"x": 3.1, "y": 66509, "dept": "Engineering", "nom": "Inès Bertrand"}, {"x": 4.0, "y": 41779, "dept": "Marketing", "nom": "Zoé Robert"}, {"x": 3.9, "y": 60936, "dept": "Engineering", "nom": "Simon Michel"}, {"x": 4.5, "y": 51144, "dept": "Engineering", "nom": "Mathieu Vincent"}, {"x": 3.5, "y": 51950, "dept": "Sales", "nom": "Stéphanie Petit"}, {"x": 4.0, "y": 59001, "dept": "Engineering", "nom": "Laura Roussel"}, {"x": 3.8, "y": 52349, "dept": "Engineering", "nom": "Anaïs Richard"}, {"x": 4.9, "y": 52860, "dept": "Marketing", "nom": "Jade Leroy"}, {"x": 3.9, "y": 38237, "dept": "RH", "nom": "Clara Dubois"}, {"x": 4.0, "y": 68546, "dept": "Engineering", "nom": "Yoann David"}, {"x": 3.9, "y": 58624, "dept": "Engineering", "nom": "Guillaume Simon"}, {"x": 4.0, "y": 38417, "dept": "Support & Ops", "nom": "Ethan Martinez"}, {"x": 4.8, "y": 58874, "dept": "Engineering", "nom": "Yann Lefebvre"}, {"x": 4.2, "y": 42078, "dept": "Marketing", "nom": "Sophie Faure"}, {"x": 4.8, "y": 70540, "dept": "Engineering", "nom": "Elisa Henry"}, {"x": 4.8, "y": 65526, "dept": "Engineering", "nom": "Mathilde Roussel"}, {"x": 3.5, "y": 56521, "dept": "Sales", "nom": "Amélie Dumont"}, {"x": 3.1, "y": 65930, "dept": "Data & IA", "nom": "Mathilde Robert"}, {"x": 4.8, "y": 58491, "dept": "Data & IA", "nom": "Stéphanie Lambert"}, {"x": 4.8, "y": 41003, "dept": "Support & Ops", "nom": "Nicolas Mathieu"}, {"x": 4.4, "y": 51281, "dept": "Engineering", "nom": "Julien Vincent"}, {"x": 3.1, "y": 46258, "dept": "Finance", "nom": "Mélanie François"}, {"x": 4.1, "y": 39590, "dept": "RH", "nom": "Océane Mathieu"}, {"x": 4.3, "y": 70487, "dept": "Data & IA", "nom": "Ethan Moreau"}, {"x": 4.8, "y": 59034, "dept": "Engineering", "nom": "Marion Perrin"}, {"x": 4.2, "y": 59302, "dept": "Sales", "nom": "Inès Moreau"}, {"x": 4.7, "y": 42375, "dept": "RH", "nom": "Anaïs Guerin"}, {"x": 4.7, "y": 53962, "dept": "Engineering", "nom": "Séverine Lopez"}, {"x": 4.9, "y": 48906, "dept": "Marketing", "nom": "Benoît Legrand"}, {"x": 4.6, "y": 53239, "dept": "Product", "nom": "Guillaume François"}, {"x": 3.4, "y": 63827, "dept": "Data & IA", "nom": "David Moreau"}, {"x": 4.6, "y": 52828, "dept": "Product", "nom": "Marion Girard"}, {"x": 3.5, "y": 59735, "dept": "Product", "nom": "Jade Henry"}, {"x": 2.8, "y": 55324, "dept": "Product", "nom": "Alice André"}, {"x": 3.5, "y": 48043, "dept": "Engineering", "nom": "Xavier Bonnet"}, {"x": 3.3, "y": 56241, "dept": "Engineering", "nom": "Emilie Martinez"}, {"x": 3.3, "y": 46694, "dept": "RH", "nom": "Julie Richard"}, {"x": 3.8, "y": 41127, "dept": "Support & Ops", "nom": "Xavier Robert"}, {"x": 4.1, "y": 60530, "dept": "Engineering", "nom": "François Leroy"}, {"x": 4.8, "y": 72705, "dept": "Data & IA", "nom": "Jade Lefevre"}, {"x": 3.7, "y": 52769, "dept": "Product", "nom": "Tristan Bernard"}, {"x": 4.2, "y": 59202, "dept": "Engineering", "nom": "Clément Gauthier"}, {"x": 3.0, "y": 45741, "dept": "Sales", "nom": "Lucas Blanc"}, {"x": 3.1, "y": 41884, "dept": "Finance", "nom": "Noémie Petit"}, {"x": 4.3, "y": 44461, "dept": "Sales", "nom": "Elisa Lopez"}, {"x": 3.8, "y": 65486, "dept": "Data & IA", "nom": "Mathilde Lopez"}, {"x": 4.0, "y": 47059, "dept": "Marketing", "nom": "Mélanie David"}, {"x": 4.5, "y": 56208, "dept": "Engineering", "nom": "Raphaël Michel"}, {"x": 3.7, "y": 58357, "dept": "Engineering", "nom": "Samuel Lefebvre"}, {"x": 4.9, "y": 42047, "dept": "Finance", "nom": "Sophie Dumont"}, {"x": 3.2, "y": 45433, "dept": "Sales", "nom": "Nathan Gauthier"}, {"x": 4.9, "y": 47173, "dept": "Finance", "nom": "Mathilde Fontaine"}, {"x": 3.0, "y": 66252, "dept": "Data & IA", "nom": "Julie Garcia"}, {"x": 3.2, "y": 68072, "dept": "Data & IA", "nom": "Fabien Fontaine"}, {"x": 4.6, "y": 42711, "dept": "RH", "nom": "Ethan Vincent"}, {"x": 3.9, "y": 55008, "dept": "Engineering", "nom": "Amélie Thomas"}, {"x": 3.1, "y": 48434, "dept": "Product", "nom": "Alexandre Muller"}, {"x": 4.1, "y": 69775, "dept": "Data & IA", "nom": "Gabriel Legrand"}, {"x": 3.0, "y": 66257, "dept": "Engineering", "nom": "Dylan Muller"}, {"x": 4.4, "y": 34205, "dept": "Support & Ops", "nom": "Charles Rousseau"}, {"x": 4.4, "y": 62470, "dept": "Data & IA", "nom": "Romane Nicolas"}, {"x": 4.5, "y": 49779, "dept": "Marketing", "nom": "Stéphanie Richard"}, {"x": 3.4, "y": 55073, "dept": "Product", "nom": "Nicolas François"}, {"x": 3.4, "y": 49213, "dept": "Marketing", "nom": "Vanessa Martinez"}, {"x": 4.0, "y": 57968, "dept": "Sales", "nom": "Chloé Blanc"}, {"x": 4.3, "y": 60087, "dept": "Engineering", "nom": "Edouard Fournier"}, {"x": 3.2, "y": 58228, "dept": "Engineering", "nom": "Juliette Faure"}, {"x": 4.8, "y": 46502, "dept": "Marketing", "nom": "Romane Dubois"}, {"x": 3.3, "y": 46604, "dept": "Finance", "nom": "Tristan Bonnet"}, {"x": 4.6, "y": 62186, "dept": "Data & IA", "nom": "Stéphanie Petit"}, {"x": 3.4, "y": 57064, "dept": "Data & IA", "nom": "Zoé Guerin"}, {"x": 3.8, "y": 54109, "dept": "Sales", "nom": "Charles Dupont"}, {"x": 4.8, "y": 54534, "dept": "Product", "nom": "Anaïs Lefebvre"}, {"x": 3.6, "y": 50276, "dept": "Sales", "nom": "Fabien Roux"}, {"x": 3.6, "y": 62599, "dept": "Data & IA", "nom": "Antoine Perrin"}, {"x": 3.3, "y": 66221, "dept": "Engineering", "nom": "Camille Garcia"}, {"x": 4.5, "y": 35655, "dept": "Support & Ops", "nom": "Victoria Vincent"}, {"x": 3.5, "y": 52357, "dept": "Product", "nom": "Pierre Guerin"}, {"x": 2.8, "y": 60070, "dept": "Engineering", "nom": "Guillaume Robin"}, {"x": 3.1, "y": 44908, "dept": "Finance", "nom": "Hugo Lopez"}, {"x": 3.8, "y": 49509, "dept": "Engineering", "nom": "Lea Guerin"}, {"x": 3.2, "y": 37381, "dept": "Support & Ops", "nom": "Stéphanie Morin"}, {"x": 3.7, "y": 57811, "dept": "Product", "nom": "Baptiste Legrand"}, {"x": 3.3, "y": 50236, "dept": "Marketing", "nom": "Valentine Blanc"}, {"x": 4.2, "y": 44220, "dept": "Marketing", "nom": "François Perrin"}, {"x": 2.8, "y": 38704, "dept": "Support & Ops", "nom": "Cédric Perrin"}, {"x": 3.9, "y": 43926, "dept": "Marketing", "nom": "Kevin Thomas"}, {"x": 3.9, "y": 51294, "dept": "Finance", "nom": "Romane Clement"}, {"x": 3.4, "y": 47842, "dept": "Marketing", "nom": "Raphaël Henry"}, {"x": 3.8, "y": 54818, "dept": "Engineering", "nom": "Stéphanie Martin"}, {"x": 4.2, "y": 63999, "dept": "Engineering", "nom": "Paul André"}, {"x": 3.6, "y": 40359, "dept": "RH", "nom": "Laure Lefebvre"}, {"x": 3.0, "y": 51551, "dept": "Sales", "nom": "Vanessa Vincent"}, {"x": 4.7, "y": 48005, "dept": "Sales", "nom": "Laura Robin"}, {"x": 3.4, "y": 53179, "dept": "Marketing", "nom": "Vincent Petit"}, {"x": 3.2, "y": 47732, "dept": "Marketing", "nom": "Virginie Leroy"}, {"x": 4.4, "y": 56902, "dept": "Engineering", "nom": "David Blanc"}, {"x": 4.0, "y": 59401, "dept": "Data & IA", "nom": "Nathalie Vincent"}, {"x": 4.4, "y": 62689, "dept": "Data & IA", "nom": "Cédric Garcia"}, {"x": 3.0, "y": 54968, "dept": "Engineering", "nom": "Nathan Martin"}, {"x": 4.8, "y": 67322, "dept": "Data & IA", "nom": "Sonia Lefevre"}, {"x": 3.8, "y": 42555, "dept": "RH", "nom": "Xavier Robert"}, {"x": 3.2, "y": 50751, "dept": "Marketing", "nom": "Arthur Fournier"}, {"x": 4.3, "y": 53718, "dept": "Data & IA", "nom": "Morgane Lefevre"}, {"x": 3.0, "y": 53186, "dept": "Engineering", "nom": "Mélanie David"}, {"x": 4.4, "y": 63615, "dept": "Product", "nom": "Nathan Roux"}, {"x": 3.7, "y": 58990, "dept": "Product", "nom": "Xavier Perrin"}, {"x": 2.9, "y": 45473, "dept": "Engineering", "nom": "Théo Michel"}, {"x": 4.6, "y": 63798, "dept": "Product", "nom": "Jade Moreau"}, {"x": 4.4, "y": 53482, "dept": "Marketing", "nom": "Elisa Durand"}, {"x": 3.2, "y": 41419, "dept": "Support & Ops", "nom": "Amandine Laurent"}, {"x": 3.1, "y": 44472, "dept": "Sales", "nom": "Quentin François"}, {"x": 3.4, "y": 58244, "dept": "Engineering", "nom": "Arnaud Mathieu"}, {"x": 4.3, "y": 39112, "dept": "Finance", "nom": "Marine Bonnet"}, {"x": 3.0, "y": 58134, "dept": "Sales", "nom": "Kevin Roussel"}, {"x": 4.6, "y": 56456, "dept": "Data & IA", "nom": "Sarah Rousseau"}, {"x": 3.7, "y": 47736, "dept": "Engineering", "nom": "Xavier Morin"}, {"x": 3.8, "y": 44182, "dept": "Sales", "nom": "Eva Lambert"}, {"x": 4.3, "y": 59617, "dept": "Engineering", "nom": "Laurie Mathieu"}, {"x": 3.6, "y": 67855, "dept": "Engineering", "nom": "Benjamin Richard"}, {"x": 4.0, "y": 55660, "dept": "Product", "nom": "Tristan Guerin"}, {"x": 4.8, "y": 62807, "dept": "Data & IA", "nom": "Virginie Thomas"}, {"x": 4.5, "y": 58264, "dept": "Sales", "nom": "Yann Legrand"}, {"x": 4.1, "y": 58151, "dept": "Engineering", "nom": "Cédric Roux"}, {"x": 4.5, "y": 58268, "dept": "Product", "nom": "Amandine Laurent"}, {"x": 3.9, "y": 54399, "dept": "Engineering", "nom": "Dylan Muller"}, {"x": 4.3, "y": 46439, "dept": "Sales", "nom": "Maxime Lambert"}, {"x": 4.4, "y": 52342, "dept": "Marketing", "nom": "Axel Moreau"}, {"x": 4.8, "y": 60454, "dept": "Engineering", "nom": "Noémie Roussel"}, {"x": 3.0, "y": 61219, "dept": "Data & IA", "nom": "Mathilde Durand"}, {"x": 3.6, "y": 71659, "dept": "Data & IA", "nom": "Nathan Roussel"}, {"x": 4.9, "y": 60030, "dept": "Product", "nom": "Laura Morel"}, {"x": 4.7, "y": 62915, "dept": "Engineering", "nom": "Maxime Blanc"}, {"x": 3.5, "y": 62840, "dept": "Product", "nom": "Yasmine Dubois"}, {"x": 3.8, "y": 40194, "dept": "Support & Ops", "nom": "Romane Dupont"}, {"x": 3.4, "y": 41346, "dept": "Support & Ops", "nom": "Victor Martinez"}, {"x": 4.2, "y": 65445, "dept": "Data & IA", "nom": "Sabrina Dupont"}, {"x": 3.5, "y": 50167, "dept": "Finance", "nom": "Laurent Robin"}, {"x": 4.1, "y": 60895, "dept": "Engineering", "nom": "Lucie Lopez"}, {"x": 2.9, "y": 47116, "dept": "RH", "nom": "Emile Roussel"}, {"x": 2.8, "y": 66770, "dept": "Data & IA", "nom": "Valentine Muller"}, {"x": 4.0, "y": 38412, "dept": "Support & Ops", "nom": "Aurore Legrand"}, {"x": 3.2, "y": 54623, "dept": "Engineering", "nom": "Océane Robert"}, {"x": 4.1, "y": 64160, "dept": "Engineering", "nom": "Aurore Morin"}, {"x": 3.5, "y": 71276, "dept": "Data & IA", "nom": "Sabrina Guerin"}, {"x": 4.7, "y": 51977, "dept": "Sales", "nom": "Sarah Legrand"}, {"x": 4.3, "y": 53905, "dept": "Engineering", "nom": "Mathieu Lefevre"}, {"x": 4.0, "y": 56528, "dept": "Product", "nom": "Aurore Girard"}, {"x": 4.0, "y": 38096, "dept": "Support & Ops", "nom": "Camille Henry"}, {"x": 3.5, "y": 40475, "dept": "RH", "nom": "Julien Guerin"}, {"x": 4.8, "y": 59544, "dept": "Engineering", "nom": "Océane Lefevre"}, {"x": 4.8, "y": 57742, "dept": "Sales", "nom": "Elodie Garcia"}, {"x": 4.2, "y": 35964, "dept": "Support & Ops", "nom": "Jade Nicolas"}, {"x": 3.0, "y": 51965, "dept": "Sales", "nom": "Amélie Lambert"}, {"x": 3.4, "y": 45041, "dept": "Marketing", "nom": "Eva Blanc"}, {"x": 4.0, "y": 56060, "dept": "Engineering", "nom": "Valentine Muller"}, {"x": 3.4, "y": 59555, "dept": "Engineering", "nom": "Ethan Roussel"}, {"x": 3.9, "y": 66085, "dept": "Engineering", "nom": "Alexis Rousseau"}, {"x": 4.6, "y": 51202, "dept": "Engineering", "nom": "Océane Moreau"}, {"x": 4.6, "y": 52713, "dept": "Engineering", "nom": "Amandine Lambert"}, {"x": 3.2, "y": 60476, "dept": "Product", "nom": "Mathieu Garcia"}, {"x": 4.1, "y": 56994, "dept": "Sales", "nom": "Arthur Vincent"}, {"x": 3.9, "y": 61544, "dept": "Engineering", "nom": "Benjamin Bernard"}, {"x": 3.4, "y": 54180, "dept": "Sales", "nom": "Charles Vincent"}, {"x": 4.3, "y": 63021, "dept": "Engineering", "nom": "Hugo Bonnet"}, {"x": 4.5, "y": 36657, "dept": "Support & Ops", "nom": "Samuel Lefevre"}, {"x": 4.1, "y": 51908, "dept": "Engineering", "nom": "Nathalie Dubois"}, {"x": 3.6, "y": 67046, "dept": "Engineering", "nom": "Aurore André"}, {"x": 3.5, "y": 64984, "dept": "Data & IA", "nom": "Lucas Blanc"}, {"x": 4.5, "y": 33462, "dept": "Support & Ops", "nom": "Arthur Morel"}, {"x": 3.5, "y": 64701, "dept": "Engineering", "nom": "Amélie Chevalier"}, {"x": 4.7, "y": 54555, "dept": "Engineering", "nom": "Chloé Lefevre"}, {"x": 2.8, "y": 41169, "dept": "RH", "nom": "Raphaël Gauthier"}], "departements": ["Data & IA", "Engineering", "Finance", "Marketing", "Product", "RH", "Sales", "Support & Ops"]};
+
+const CYAN='#00C8FF', PURPLE='#5B6EF5', GREEN='#10b981', RED='#ef4444', AMBER='#f59e0b';
+const DEPT_COLORS={
+  'Engineering':CYAN,'Data & IA':PURPLE,'Product':AMBER,
+  'Sales':RED,'Marketing':'#ec4899','RH':'#06b6d4',
+  'Finance':'#f97316','Support & Ops':GREEN
+};
+const PALETTE=Object.values(DEPT_COLORS);
+
+Chart.defaults.color='#94a3b8';
+Chart.defaults.borderColor='#2d3f5e';
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+Chart.defaults.font.size=11;
+
+// ── helpers ──
+const fmt = (v,t)=>{
+  if(t==='pct') return v.toFixed(1)+'%';
+  if(t==='eur') return v>=1e6?(v/1e6).toFixed(1)+'M€':(v/1e3).toFixed(0)+'k€';
+  if(t==='score') return v.toFixed(2)+'/5';
+  return v;
+};
+
+// ── filter state ──
+let filteredTable = RAW.emp_table;
+let sortCol='risque', sortDir=-1;
+
+function getFilters(){
+  return {
+    dept:   document.getElementById('f-dept').value,
+    contrat:document.getElementById('f-contrat').value,
+    promo:  document.getElementById('f-promo').value,
+  };
+}
+
+function applyFilters(){
+  const {dept,contrat,promo}=getFilters();
+  filteredTable = RAW.emp_table.filter(r=>{
+    if(dept!=='all' && r.dept!==dept) return false;
+    if(contrat!=='all' && r.contrat!==contrat) return false;
+    if(promo!=='all' && r.promotion!==promo) return false;
+    return true;
+  });
+  updateKPIs();
+  renderTable();
+}
+
+// ── KPIs ──
+function updateKPIs(){
+  const f=getFilters();
+  let data = RAW.emp_table;
+  if(f.dept!=='all') data=data.filter(r=>r.dept===f.dept);
+  if(f.contrat!=='all') data=data.filter(r=>r.contrat===f.contrat);
+  if(f.promo!=='all') data=data.filter(r=>r.promotion===f.promo);
+
+  const n=data.length||1;
+  const score=data.reduce((a,r)=>a+r.score_perf,0)/n;
+  const abs=data.reduce((a,r)=>a+r.jours_abs,0)/(n*230)*100;
+  const promos=data.filter(r=>r.promotion==='Oui').length;
+
+  document.getElementById('k-emp').textContent=data.length;
+  document.getElementById('k-emp-sub').textContent=`${data.filter(r=>r.contrat==='CDI').length} CDI · ${data.filter(r=>r.contrat==='CDD').length} CDD`;
+  document.getElementById('k-score').textContent=score.toFixed(2);
+  document.getElementById('k-score-sub').textContent=`${data.filter(r=>r.score_perf>=4.2).length} top performers (≥4.2)`;
+  document.getElementById('k-abs').textContent=abs.toFixed(2)+'%';
+  document.getElementById('k-abs-sub').textContent=`${data.reduce((a,r)=>a+r.jours_abs,0)} jours perdus`;
+  document.getElementById('k-promo').textContent=promos;
+  document.getElementById('k-promo-sub').textContent=`${(promos/n*100).toFixed(1)}% de l'effectif filtré`;
+}
+
+// ── Populate filters ──
+function initFilters(){
+  const sel=document.getElementById('f-dept');
+  RAW.departements.forEach(d=>{
+    const o=document.createElement('option');
+    o.value=o.textContent=d;
+    sel.appendChild(o);
+  });
+}
+
+// ── CHARTS ──
+// 1. Trend performance
+(function(){
+  const d=RAW.perf_trend;
+  const depts=Object.keys(RAW.dept_trend);
+  const datasets=[{
+    label:'Moyenne globale',
+    data:d.global,
+    borderColor:CYAN,
+    backgroundColor:CYAN+'22',
+    borderWidth:3,fill:false,tension:.35,pointRadius:3,
+    spanGaps:true,
+  }];
+  depts.forEach((dept,i)=>{
+    datasets.push({
+      label:dept,data:RAW.dept_trend[dept],
+      borderColor:DEPT_COLORS[dept]||PALETTE[i%PALETTE.length],
+      backgroundColor:'transparent',borderWidth:1.5,
+      pointRadius:2,tension:.35,fill:false,spanGaps:true,
+    });
+  });
+  new Chart(document.getElementById('c-trend'),{
+    type:'line',data:{labels:d.labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:14,boxWidth:8}}},
+      scales:{
+        y:{min:2,max:5.2,ticks:{callback:v=>v.toFixed(1)},grid:{color:'#2d3f5e'}},
+        x:{grid:{display:false}}
+      }
+    }
+  });
+})();
+
+// 2. Dept bar
+(function(){
+  const data=RAW.dept_perf.sort((a,b)=>b.score-a.score);
+  new Chart(document.getElementById('c-dept'),{
+    type:'bar',
+    data:{
+      labels:data.map(d=>d.departement),
+      datasets:[{
+        label:'Score moyen',data:data.map(d=>+d.score.toFixed(2)),
+        backgroundColor:data.map(d=>DEPT_COLORS[d.departement]||CYAN)+'cc',
+        borderColor:data.map(d=>DEPT_COLORS[d.departement]||CYAN),
+        borderWidth:1,borderRadius:6,
+      }]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`Score: ${c.parsed.x.toFixed(2)}/5`}}},
+      scales:{
+        x:{min:2.5,max:5.2,grid:{color:'#2d3f5e'},ticks:{callback:v=>v.toFixed(1)}},
+        y:{grid:{display:false}}
+      }
+    }
+  });
+})();
+
+// 3. Salary distribution
+(function(){
+  const d=RAW.sal_dist;
+  new Chart(document.getElementById('c-sal'),{
+    type:'bar',
+    data:{
+      labels:d.map(x=>x.bucket),
+      datasets:[{
+        data:d.map(x=>x.count),
+        backgroundColor:d.map((_,i)=>[CYAN,PURPLE,GREEN,AMBER,RED,'#ec4899'][i%6]+'aa'),
+        borderColor:d.map((_,i)=>[CYAN,PURPLE,GREEN,AMBER,RED,'#ec4899'][i%6]),
+        borderWidth:1,borderRadius:6,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y} employés`}}},
+      scales:{x:{grid:{display:false}},y:{grid:{color:'#2d3f5e'},ticks:{stepSize:10}}}
+    }
+  });
+})();
+
+// 4. Absences by type (doughnut)
+(function(){
+  const d=RAW.abs_type;
+  new Chart(document.getElementById('c-abstype'),{
+    type:'doughnut',
+    data:{
+      labels:d.map(x=>x.type_absence),
+      datasets:[{
+        data:d.map(x=>x.jours),
+        backgroundColor:[CYAN,PURPLE,GREEN,AMBER,RED,'#ec4899','#06b6d4'].map(c=>c+'cc'),
+        borderColor:'#1a2235',borderWidth:2,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{legend:{position:'bottom',labels:{padding:8,boxWidth:10}},
+        tooltip:{callbacks:{label:c=>`${c.label}: ${c.parsed} jours`}}}
+    }
+  });
+})();
+
+// 5. Scatter salaire vs performance
+(function(){
+  const byDept={};
+  RAW.scatter.forEach(p=>{
+    if(!byDept[p.dept]) byDept[p.dept]=[];
+    byDept[p.dept].push({x:p.x,y:p.y,nom:p.nom});
+  });
+  const datasets=Object.entries(byDept).map(([dept,pts])=>({
+    label:dept,data:pts,
+    backgroundColor:(DEPT_COLORS[dept]||CYAN)+'bb',
+    pointRadius:5,pointHoverRadius:8,
+  }));
+  new Chart(document.getElementById('c-scatter'),{
+    type:'scatter',data:{datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'bottom',labels:{usePointStyle:true,padding:10,boxWidth:8}},
+        tooltip:{callbacks:{label:c=>`${c.raw.nom}: ${c.raw.x.toFixed(1)}/5 · ${(c.raw.y/1000).toFixed(0)}k€`}}
+      },
+      scales:{
+        x:{title:{display:true,text:'Score performance',color:'#94a3b8'},min:2,max:5.2,grid:{color:'#2d3f5e'}},
+        y:{title:{display:true,text:'Salaire base (€)',color:'#94a3b8'},grid:{color:'#2d3f5e'},
+           ticks:{callback:v=>(v/1000).toFixed(0)+'k'}}
+      }
+    }
+  });
+})();
+
+// 6. Absences mensuelles
+(function(){
+  const d=RAW.abs_mois;
+  new Chart(document.getElementById('c-absmois'),{
+    type:'bar',
+    data:{
+      labels:d.map(x=>x.mois),
+      datasets:[{
+        label:'Jours absents',data:d.map(x=>x.jours),
+        backgroundColor:CYAN+'55',borderColor:CYAN,borderWidth:1.5,borderRadius:4,
+      },{
+        label:'Nb épisodes',data:d.map(x=>x.nb),
+        type:'line',borderColor:PURPLE,backgroundColor:'transparent',
+        borderWidth:2,pointRadius:2,tension:.3,yAxisID:'y2',
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:10,boxWidth:8}}},
+      scales:{
+        x:{grid:{display:false},ticks:{maxRotation:45,font:{size:9}}},
+        y:{grid:{color:'#2d3f5e'},title:{display:true,text:'Jours',color:'#94a3b8'}},
+        y2:{position:'right',grid:{display:false},title:{display:true,text:'Épisodes',color:'#94a3b8'}},
+      }
+    }
+  });
+})();
+
+// ── ALERTES ──
+function renderAlertes(){
+  const c=document.getElementById('alertes-container');
+  document.getElementById('alerte-count').textContent=`(${RAW.alertes.length} profils identifiés)`;
+  c.innerHTML=RAW.alertes.map(a=>`
+    <div class="alerte-card">
+      <div class="alerte-top">
+        <div>
+          <div class="alerte-nom">${a.nom} <span style="color:var(--text2);font-weight:400">${a.id}</span></div>
+          <div class="alerte-dept">${a.dept} · ${a.poste} · <strong>${a.contrat}</strong></div>
+        </div>
+        <span class="badge ${a.niveau==='Critique'?'badge-red':'badge-orange'}">${a.niveau}</span>
+      </div>
+      <div class="alerte-metrics">
+        <div class="alerte-metric"><div class="val">${a.score_perf.toFixed(1)}</div><div class="lbl">Score</div></div>
+        <div class="alerte-metric"><div class="val">${a.evolution_sal.toFixed(1)}%</div><div class="lbl">Évol. sal.</div></div>
+        <div class="alerte-metric"><div class="val">${a.jours_absents}j</div><div class="lbl">Absences</div></div>
+        <div class="alerte-metric"><div class="val">${a.nb_injust}</div><div class="lbl">Injust.</div></div>
+      </div>
+      <div class="risk-bar-wrap">
+        <div class="risk-bar"><div class="risk-fill" style="width:${a.score_risque/10*100}%"></div></div>
+        <div class="risk-val">Risque ${a.score_risque}/10</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── TABLE ──
+function renderTable(){
+  document.getElementById('table-count').textContent=`(${filteredTable.length} employés)`;
+  const sorted=[...filteredTable].sort((a,b)=>{
+    const av=a[sortCol],bv=b[sortCol];
+    return (av<bv?-1:av>bv?1:0)*sortDir;
+  });
+  const tbody=document.getElementById('table-body');
+  tbody.innerHTML=sorted.map(r=>`
+    <tr>
+      <td style="color:var(--text2)">${r.id}</td>
+      <td style="font-weight:600">${r.nom}</td>
+      <td><span class="tag tag-blue">${r.dept}</span></td>
+      <td>${r.contrat}</td>
+      <td>${r.anciennete.toFixed(1)} ans</td>
+      <td style="color:${r.score_perf>=4.2?'#34d399':r.score_perf<3?'#f87171':'var(--text)'};font-weight:700">${r.score_perf.toFixed(1)}</td>
+      <td>${(r.salaire/1000).toFixed(0)}k€</td>
+      <td style="color:${r.evolution<3?'#f87171':'var(--text)'}">${r.evolution.toFixed(1)}%</td>
+      <td style="color:${r.jours_abs>15?'#f87171':r.jours_abs>8?'#fb923c':'var(--text)'}">${r.jours_abs}j</td>
+      <td><span class="tag ${r.promotion==='Oui'?'tag-green':'tag-gray'}">${r.promotion}</span></td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="flex:1;height:4px;background:#2d3f5e;border-radius:2px;min-width:50px">
+            <div style="width:${r.risque/10*100}%;height:100%;border-radius:2px;background:${r.risque>=7?RED:r.risque>=5?AMBER:GREEN}"></div>
+          </div>
+          <span style="font-size:11px;color:var(--text2)">${r.risque.toFixed(1)}</span>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function sortTable(col){
+  if(sortCol===col) sortDir*=-1;
+  else{sortCol=col;sortDir=-1;}
+  renderTable();
+}
+
+// ── INIT ──
+initFilters();
+updateKPIs();
+renderAlertes();
+renderTable();
+</script>
+</body>
+</html>

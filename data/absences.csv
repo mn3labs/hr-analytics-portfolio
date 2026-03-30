@@ -1,0 +1,201 @@
+absence_id,employee_id,date_debut,date_fin,type_absence,durée_jours,motif,justifiée,année
+ABS0001,E110,2022-05-16,2022-06-04,Congé parental,20,Naissance / adoption,Oui,2022
+ABS0002,E024,2022-09-14,2022-09-16,Formation,3,Leadership,Oui,2022
+ABS0003,E014,2024-01-14,2024-01-16,Congé sans solde,3,Projet personnel,Oui,2024
+ABS0004,E181,2022-08-07,2022-08-07,Maladie,1,Opération chirurgicale,Oui,2022
+ABS0005,E152,2023-11-28,2023-12-04,Congé parental,7,Naissance / adoption,Oui,2023
+ABS0006,E179,2023-03-09,2023-03-09,RTT,1,Récupération temps de travail,Oui,2023
+ABS0007,E059,2024-01-19,2024-01-19,Congé sans solde,1,Projet personnel,Oui,2024
+ABS0008,E095,2023-01-27,2023-01-28,RTT,2,Récupération temps de travail,Oui,2023
+ABS0009,E136,2023-09-17,2023-09-17,Absence injustifiée,1,Sans motif fourni,Non,2023
+ABS0010,E185,2024-02-06,2024-02-19,Congé parental,14,Naissance / adoption,Oui,2024
+ABS0011,E056,2022-05-24,2022-05-24,Maladie,1,Grippe,Oui,2022
+ABS0012,E090,2024-03-21,2024-03-23,Congé sans solde,3,Projet personnel,Oui,2024
+ABS0013,E166,2023-07-21,2023-07-22,Maladie,2,Fatigue intense,Oui,2023
+ABS0014,E200,2023-11-06,2023-11-06,Formation,1,Formation Python,Oui,2023
+ABS0015,E192,2023-10-24,2023-10-26,Congé sans solde,3,Projet personnel,Oui,2023
+ABS0016,E099,2023-05-27,2023-05-28,Maladie,2,Fatigue intense,Oui,2023
+ABS0017,E093,2023-02-01,2023-02-02,RTT,2,Récupération temps de travail,Oui,2023
+ABS0018,E140,2024-02-21,2024-02-22,Formation,2,Certification AWS,Oui,2024
+ABS0019,E151,2022-09-26,2022-09-26,Maladie,1,Gastro-entérite,Oui,2022
+ABS0020,E102,2023-10-06,2023-10-08,Absence injustifiée,3,Sans motif fourni,Non,2023
+ABS0021,E180,2023-10-18,2023-10-18,Congé sans solde,1,Projet personnel,Oui,2023
+ABS0022,E072,2022-03-22,2022-03-24,Maladie,3,Fatigue intense,Oui,2022
+ABS0023,E138,2023-08-24,2023-08-28,RTT,5,Récupération temps de travail,Oui,2023
+ABS0024,E187,2022-03-01,2022-03-02,Congé exceptionnel,2,PACS,Oui,2022
+ABS0025,E030,2022-11-13,2022-11-13,Congé sans solde,1,Projet personnel,Oui,2022
+ABS0026,E182,2022-01-12,2022-01-31,Congé parental,20,Naissance / adoption,Oui,2022
+ABS0027,E134,2022-06-20,2022-06-22,Absence injustifiée,3,Sans motif fourni,Non,2022
+ABS0028,E188,2022-12-10,2022-12-10,Maladie,1,Opération chirurgicale,Oui,2022
+ABS0029,E068,2023-05-24,2023-05-24,Formation,1,Excel Avancé,Oui,2023
+ABS0030,E015,2023-01-12,2023-01-13,Congé sans solde,2,Projet personnel,Oui,2023
+ABS0031,E147,2022-08-22,2022-08-22,Formation,1,Certification AWS,Oui,2022
+ABS0032,E004,2023-04-29,2023-04-29,Congé parental,1,Naissance / adoption,Oui,2023
+ABS0033,E046,2023-07-21,2023-07-21,Congé exceptionnel,1,Déménagement,Oui,2023
+ABS0034,E064,2022-10-05,2022-10-07,Congé sans solde,3,Projet personnel,Oui,2022
+ABS0035,E031,2022-07-03,2022-07-03,Absence injustifiée,1,Sans motif fourni,Non,2022
+ABS0036,E103,2022-10-17,2022-10-21,Maladie,5,Migraine chronique,Oui,2022
+ABS0037,E142,2023-01-13,2023-01-13,Congé sans solde,1,Projet personnel,Oui,2023
+ABS0038,E190,2023-04-21,2023-04-22,Absence injustifiée,2,Sans motif fourni,Non,2023
+ABS0039,E198,2024-01-21,2024-01-22,Congé exceptionnel,2,Décès famille,Oui,2024
+ABS0040,E002,2022-08-27,2022-08-27,Congé sans solde,1,Projet personnel,Oui,2022
+ABS0041,E086,2024-01-26,2024-01-30,Maladie,5,Migraine chronique,Oui,2024
+ABS0042,E136,2023-05-19,2023-05-21,Congé parental,3,Naissance / adoption,Oui,2023
+ABS0043,E024,2023-06-17,2023-06-18,Maladie,2,Opération chirurgicale,Oui,2023
+ABS0044,E192,2023-06-02,2023-06-02,Maladie,1,Gastro-entérite,Oui,2023
+ABS0045,E152,2023-03-22,2023-03-22,Absence injustifiée,1,Sans motif fourni,Non,2023
+ABS0046,E067,2024-03-31,2024-04-02,Congé exceptionnel,3,Déménagement,Oui,2024
+ABS0047,E116,2022-03-18,2022-03-19,RTT,2,Récupération temps de travail,Oui,2022
+ABS0048,E040,2023-04-06,2023-04-07,Maladie,2,Opération chirurgicale,Oui,2023
+ABS0049,E031,2024-02-28,2024-03-01,Absence injustifiée,3,Sans motif fourni,Non,2024
+ABS0050,E119,2022-04-03,2022-04-03,RTT,1,Récupération temps de travail,Oui,2022
+ABS0051,E056,2022-06-01,2022-06-03,Congé exceptionnel,3,Déménagement,Oui,2022
+ABS0052,E102,2023-11-25,2023-11-25,Absence injustifiée,1,Sans motif fourni,Non,2023
+ABS0053,E008,2023-07-24,2023-07-28,Congé sans solde,5,Projet personnel,Oui,2023
+ABS0054,E119,2022-05-05,2022-05-06,Maladie,2,Grippe,Oui,2022
+ABS0055,E034,2023-01-17,2023-01-19,Congé parental,3,Naissance / adoption,Oui,2023
+ABS0056,E020,2022-07-22,2022-07-22,Maladie,1,Opération chirurgicale,Oui,2022
+ABS0057,E085,2023-04-18,2023-04-18,Maladie,1,Grippe,Oui,2023
+ABS0058,E186,2022-01-31,2022-02-04,Congé sans solde,5,Projet personnel,Oui,2022
+ABS0059,E091,2022-10-09,2022-10-09,Congé parental,1,Naissance / adoption,Oui,2022
+ABS0060,E009,2023-10-25,2023-10-26,Absence injustifiée,2,Sans motif fourni,Non,2023
+ABS0061,E141,2022-03-31,2022-03-31,Congé sans solde,1,Projet personnel,Oui,2022
+ABS0062,E108,2024-03-27,2024-04-09,Congé parental,14,Naissance / adoption,Oui,2024
+ABS0063,E098,2023-05-07,2023-05-09,Congé exceptionnel,3,Déménagement,Oui,2023
+ABS0064,E145,2023-02-02,2023-02-04,Absence injustifiée,3,Sans motif fourni,Non,2023
+ABS0065,E082,2022-01-31,2022-02-01,Absence injustifiée,2,Sans motif fourni,Non,2022
+ABS0066,E136,2022-06-13,2022-06-14,RTT,2,Récupération temps de travail,Oui,2022
+ABS0067,E069,2024-02-22,2024-02-22,Absence injustifiée,1,Sans motif fourni,Non,2024
+ABS0068,E091,2022-06-30,2022-07-01,Congé exceptionnel,2,Déménagement,Oui,2022
+ABS0069,E189,2023-08-29,2023-08-31,Formation,3,Leadership,Oui,2023
+ABS0070,E145,2023-05-20,2023-06-18,Congé parental,30,Naissance / adoption,Oui,2023
+ABS0071,E126,2022-02-27,2022-02-27,Maladie,1,Gastro-entérite,Oui,2022
+ABS0072,E006,2022-01-01,2022-01-05,Absence injustifiée,5,Sans motif fourni,Non,2022
+ABS0073,E034,2022-11-28,2022-11-29,RTT,2,Récupération temps de travail,Oui,2022
+ABS0074,E151,2024-03-03,2024-03-04,Formation,2,Excel Avancé,Oui,2024
+ABS0075,E019,2023-08-24,2023-08-28,RTT,5,Récupération temps de travail,Oui,2023
+ABS0076,E083,2024-01-20,2024-01-20,Congé parental,1,Naissance / adoption,Oui,2024
+ABS0077,E045,2023-12-12,2023-12-18,Formation,7,Leadership,Oui,2023
+ABS0078,E171,2023-01-23,2023-01-24,Absence injustifiée,2,Sans motif fourni,Non,2023
+ABS0079,E046,2023-12-20,2023-12-20,Formation,1,Agile Scrum,Oui,2023
+ABS0080,E047,2023-09-19,2023-09-21,Absence injustifiée,3,Sans motif fourni,Non,2023
+ABS0081,E128,2024-02-03,2024-02-05,Congé parental,3,Naissance / adoption,Oui,2024
+ABS0082,E082,2022-04-01,2022-04-14,Congé parental,14,Naissance / adoption,Oui,2022
+ABS0083,E068,2023-12-11,2023-12-12,Congé parental,2,Naissance / adoption,Oui,2023
+ABS0084,E028,2022-02-19,2022-02-19,Formation,1,Agile Scrum,Oui,2022
+ABS0085,E043,2023-01-23,2023-01-27,Congé sans solde,5,Projet personnel,Oui,2023
+ABS0086,E026,2024-03-18,2024-03-22,Congé exceptionnel,5,Décès famille,Oui,2024
+ABS0087,E116,2022-10-29,2022-10-29,Maladie,1,Grippe,Oui,2022
+ABS0088,E027,2022-06-24,2022-06-26,Maladie,3,Opération chirurgicale,Oui,2022
+ABS0089,E141,2023-09-01,2023-09-03,Maladie,3,Fatigue intense,Oui,2023
+ABS0090,E111,2023-09-14,2023-09-15,Formation,2,Formation Python,Oui,2023
+ABS0091,E026,2022-07-14,2022-07-15,RTT,2,Récupération temps de travail,Oui,2022
+ABS0092,E170,2022-09-01,2022-09-03,RTT,3,Récupération temps de travail,Oui,2022
+ABS0093,E147,2022-06-07,2022-06-11,Absence injustifiée,5,Sans motif fourni,Non,2022
+ABS0094,E110,2023-11-09,2023-11-11,Maladie,3,Fatigue intense,Oui,2023
+ABS0095,E025,2022-06-24,2022-06-25,Maladie,2,Migraine chronique,Oui,2022
+ABS0096,E030,2023-04-28,2023-05-02,RTT,5,Récupération temps de travail,Oui,2023
+ABS0097,E165,2022-07-09,2022-07-13,Absence injustifiée,5,Sans motif fourni,Non,2022
+ABS0098,E048,2022-09-27,2022-09-27,Congé sans solde,1,Projet personnel,Oui,2022
+ABS0099,E058,2023-08-01,2023-08-03,Congé exceptionnel,3,Mariage,Oui,2023
+ABS0100,E022,2023-07-09,2023-07-11,Formation,3,Excel Avancé,Oui,2023
+ABS0101,E142,2023-06-20,2023-06-24,Maladie,5,Opération chirurgicale,Oui,2023
+ABS0102,E147,2022-11-03,2022-11-07,Congé parental,5,Naissance / adoption,Oui,2022
+ABS0103,E129,2024-03-30,2024-04-05,Absence injustifiée,7,Sans motif fourni,Non,2024
+ABS0104,E031,2022-06-27,2022-07-01,Congé exceptionnel,5,Décès famille,Oui,2022
+ABS0105,E033,2022-03-22,2022-03-26,Maladie,5,Opération chirurgicale,Oui,2022
+ABS0106,E153,2024-01-15,2024-01-17,RTT,3,Récupération temps de travail,Oui,2024
+ABS0107,E143,2022-11-30,2022-12-06,Congé sans solde,7,Projet personnel,Oui,2022
+ABS0108,E004,2024-03-11,2024-03-17,Congé exceptionnel,7,PACS,Oui,2024
+ABS0109,E039,2023-08-26,2023-09-04,Congé parental,10,Naissance / adoption,Oui,2023
+ABS0110,E145,2024-03-15,2024-03-15,Congé exceptionnel,1,Déménagement,Oui,2024
+ABS0111,E106,2023-11-02,2023-11-06,RTT,5,Récupération temps de travail,Oui,2023
+ABS0112,E010,2023-02-17,2023-02-18,Congé parental,2,Naissance / adoption,Oui,2023
+ABS0113,E010,2023-12-09,2023-12-11,Congé sans solde,3,Projet personnel,Oui,2023
+ABS0114,E069,2022-12-12,2022-12-12,RTT,1,Récupération temps de travail,Oui,2022
+ABS0115,E126,2022-08-22,2022-08-22,Congé exceptionnel,1,PACS,Oui,2022
+ABS0116,E199,2022-10-03,2022-10-05,Congé exceptionnel,3,Mariage,Oui,2022
+ABS0117,E049,2023-02-21,2023-02-22,Congé sans solde,2,Projet personnel,Oui,2023
+ABS0118,E015,2022-03-09,2022-03-10,Absence injustifiée,2,Sans motif fourni,Non,2022
+ABS0119,E035,2023-08-06,2023-08-12,Congé exceptionnel,7,Décès famille,Oui,2023
+ABS0120,E052,2022-09-13,2022-09-13,Congé exceptionnel,1,Mariage,Oui,2022
+ABS0121,E093,2022-10-08,2022-10-09,Formation,2,Agile Scrum,Oui,2022
+ABS0122,E163,2022-09-05,2022-09-05,Maladie,1,Migraine chronique,Oui,2022
+ABS0123,E046,2023-08-24,2023-08-28,Congé exceptionnel,5,Déménagement,Oui,2023
+ABS0124,E042,2024-02-06,2024-02-08,Congé exceptionnel,3,Mariage,Oui,2024
+ABS0125,E099,2023-08-09,2023-08-10,Maladie,2,Gastro-entérite,Oui,2023
+ABS0126,E174,2023-10-30,2023-10-31,Congé parental,2,Naissance / adoption,Oui,2023
+ABS0127,E200,2023-05-01,2023-05-01,Congé exceptionnel,1,Mariage,Oui,2023
+ABS0128,E058,2023-12-31,2024-01-02,RTT,3,Récupération temps de travail,Oui,2023
+ABS0129,E090,2022-08-12,2022-08-14,Congé sans solde,3,Projet personnel,Oui,2022
+ABS0130,E150,2023-06-08,2023-06-08,Maladie,1,Migraine chronique,Oui,2023
+ABS0131,E077,2023-05-09,2023-05-09,Formation,1,Leadership,Oui,2023
+ABS0132,E164,2022-09-25,2022-09-27,RTT,3,Récupération temps de travail,Oui,2022
+ABS0133,E133,2022-02-28,2022-03-01,Congé exceptionnel,2,Déménagement,Oui,2022
+ABS0134,E175,2022-01-27,2022-02-15,Congé parental,20,Naissance / adoption,Oui,2022
+ABS0135,E108,2024-01-25,2024-01-29,Congé sans solde,5,Projet personnel,Oui,2024
+ABS0136,E088,2023-12-04,2023-12-05,Formation,2,Agile Scrum,Oui,2023
+ABS0137,E130,2023-11-05,2023-11-06,RTT,2,Récupération temps de travail,Oui,2023
+ABS0138,E025,2024-01-29,2024-01-30,Congé sans solde,2,Projet personnel,Oui,2024
+ABS0139,E175,2022-08-16,2022-08-16,RTT,1,Récupération temps de travail,Oui,2022
+ABS0140,E108,2023-01-16,2023-01-18,Congé exceptionnel,3,Déménagement,Oui,2023
+ABS0141,E119,2023-04-27,2023-04-27,Congé exceptionnel,1,Mariage,Oui,2023
+ABS0142,E121,2022-05-03,2022-05-09,Congé parental,7,Naissance / adoption,Oui,2022
+ABS0143,E106,2022-05-21,2022-05-22,Maladie,2,Gastro-entérite,Oui,2022
+ABS0144,E146,2022-11-20,2022-11-21,Congé sans solde,2,Projet personnel,Oui,2022
+ABS0145,E086,2022-11-17,2022-11-18,Formation,2,Certification AWS,Oui,2022
+ABS0146,E071,2024-03-03,2024-04-01,Congé parental,30,Naissance / adoption,Oui,2024
+ABS0147,E126,2022-05-13,2022-05-13,Congé exceptionnel,1,PACS,Oui,2022
+ABS0148,E104,2023-01-28,2023-02-01,Congé sans solde,5,Projet personnel,Oui,2023
+ABS0149,E188,2022-11-26,2022-11-26,RTT,1,Récupération temps de travail,Oui,2022
+ABS0150,E174,2022-08-20,2022-08-21,Maladie,2,Migraine chronique,Oui,2022
+ABS0151,E027,2023-08-26,2023-09-01,Congé sans solde,7,Projet personnel,Oui,2023
+ABS0152,E012,2023-04-12,2023-04-14,RTT,3,Récupération temps de travail,Oui,2023
+ABS0153,E112,2022-12-17,2022-12-18,Formation,2,Leadership,Oui,2022
+ABS0154,E043,2022-01-20,2022-01-24,Congé exceptionnel,5,Décès famille,Oui,2022
+ABS0155,E055,2023-08-27,2023-08-27,Formation,1,Formation Python,Oui,2023
+ABS0156,E094,2023-01-20,2023-01-20,Formation,1,Excel Avancé,Oui,2023
+ABS0157,E153,2023-11-01,2023-11-01,Maladie,1,Grippe,Oui,2023
+ABS0158,E107,2022-05-07,2022-05-11,Congé sans solde,5,Projet personnel,Oui,2022
+ABS0159,E180,2023-12-13,2023-12-14,Congé parental,2,Naissance / adoption,Oui,2023
+ABS0160,E170,2022-10-04,2022-10-10,Maladie,7,Fatigue intense,Oui,2022
+ABS0161,E108,2023-06-08,2023-06-08,Congé exceptionnel,1,Déménagement,Oui,2023
+ABS0162,E030,2023-05-25,2023-05-25,Congé exceptionnel,1,Décès famille,Oui,2023
+ABS0163,E200,2022-07-26,2022-08-01,RTT,7,Récupération temps de travail,Oui,2022
+ABS0164,E042,2023-05-24,2023-05-30,Maladie,7,Gastro-entérite,Oui,2023
+ABS0165,E061,2023-11-19,2023-11-19,Maladie,1,Grippe,Oui,2023
+ABS0166,E039,2022-03-18,2022-03-24,Maladie,7,Grippe,Oui,2022
+ABS0167,E117,2023-04-21,2023-04-23,RTT,3,Récupération temps de travail,Oui,2023
+ABS0168,E011,2023-01-04,2023-01-06,Congé exceptionnel,3,Mariage,Oui,2023
+ABS0169,E025,2022-01-10,2022-01-10,Congé exceptionnel,1,Déménagement,Oui,2022
+ABS0170,E092,2024-01-21,2024-01-23,Congé sans solde,3,Projet personnel,Oui,2024
+ABS0171,E047,2023-02-14,2023-02-18,Maladie,5,Opération chirurgicale,Oui,2023
+ABS0172,E177,2024-03-30,2024-04-03,Congé exceptionnel,5,Mariage,Oui,2024
+ABS0173,E034,2022-06-13,2022-06-13,Formation,1,Agile Scrum,Oui,2022
+ABS0174,E146,2022-07-05,2022-07-09,Formation,5,Agile Scrum,Oui,2022
+ABS0175,E157,2023-05-10,2023-05-11,Maladie,2,Opération chirurgicale,Oui,2023
+ABS0176,E113,2022-09-25,2022-09-25,Maladie,1,Migraine chronique,Oui,2022
+ABS0177,E172,2023-06-16,2023-06-18,Congé exceptionnel,3,Mariage,Oui,2023
+ABS0178,E111,2023-05-09,2023-05-10,Formation,2,Agile Scrum,Oui,2023
+ABS0179,E143,2022-01-12,2022-01-12,Absence injustifiée,1,Sans motif fourni,Non,2022
+ABS0180,E127,2022-03-18,2022-03-19,Congé exceptionnel,2,Décès famille,Oui,2022
+ABS0181,E085,2023-06-04,2023-06-04,RTT,1,Récupération temps de travail,Oui,2023
+ABS0182,E104,2022-03-22,2022-03-23,Congé exceptionnel,2,PACS,Oui,2022
+ABS0183,E023,2023-04-03,2023-04-07,Congé exceptionnel,5,PACS,Oui,2023
+ABS0184,E191,2022-04-16,2022-04-16,Formation,1,Agile Scrum,Oui,2022
+ABS0185,E143,2022-04-04,2022-04-04,Absence injustifiée,1,Sans motif fourni,Non,2022
+ABS0186,E131,2023-11-02,2023-11-03,Absence injustifiée,2,Sans motif fourni,Non,2023
+ABS0187,E014,2023-04-11,2023-04-12,Congé exceptionnel,2,PACS,Oui,2023
+ABS0188,E184,2024-01-04,2024-01-06,Formation,3,Certification AWS,Oui,2024
+ABS0189,E195,2022-01-03,2022-01-04,Formation,2,Leadership,Oui,2022
+ABS0190,E141,2023-12-20,2023-12-22,Absence injustifiée,3,Sans motif fourni,Non,2023
+ABS0191,E127,2024-01-31,2024-02-19,Congé parental,20,Naissance / adoption,Oui,2024
+ABS0192,E157,2022-05-04,2022-05-05,Congé parental,2,Naissance / adoption,Oui,2022
+ABS0193,E049,2022-04-21,2022-04-23,Formation,3,Certification AWS,Oui,2022
+ABS0194,E198,2023-11-06,2023-11-10,Congé sans solde,5,Projet personnel,Oui,2023
+ABS0195,E128,2024-01-24,2024-01-30,Maladie,7,Grippe,Oui,2024
+ABS0196,E150,2024-03-10,2024-03-16,Congé sans solde,7,Projet personnel,Oui,2024
+ABS0197,E188,2022-04-17,2022-04-18,Congé exceptionnel,2,Déménagement,Oui,2022
+ABS0198,E130,2023-09-16,2023-09-20,Congé sans solde,5,Projet personnel,Oui,2023
+ABS0199,E088,2022-05-17,2022-05-21,RTT,5,Récupération temps de travail,Oui,2022
+ABS0200,E180,2023-12-30,2024-01-01,Absence injustifiée,3,Sans motif fourni,Non,2023
